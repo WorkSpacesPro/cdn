@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title>米表记录</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="X-CSRF-TOKEN" content="mo0O3FhQPHuoty6pqxokXGJm8cqgXLJgYNpUPsyV">
+    <link rel="stylesheet" href="normalize.min.css" media="all">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
+    <![endif]-->
+            <style>
+            /* background-color: #e8f6f3; //淡蓝色背景
+               color: #333; //黑色文字 */
+
+              body{
+                  text-align: center;
+                  background-color: #fff;
+                  color: #333; //深灰色文字
+              }
+              .header .logo{
+                  width: 80px;
+                  margin-top: 10px;
+              }
+
+              .feature {
+                  max-width: 320px;
+                  margin: 30px auto;
+                  padding: 10px 0;
+                  border-radius: 6px;
+                  background-color: #f0f0f0; //搜索框
+                  text-align: center;
+              }
+
+              .search-link {
+                  margin: 0 20px;
+                  color: #888;
+                  text-decoration: none;
+                  line-height: 2;
+                  vertical-align: middle;
+              }
+              .search-link .search-icon{
+                  width: 30px;
+                  height: 30px;
+                  vertical-align: middle;
+              }
+              .search-link:hover,.search-link:hover .search-icon{
+                  color: #3863ea;
+                  fill: #3863ea;
+              }
+              .footer{
+                  font-size: 13px;
+                  color: #aaa;
+              }
+              .footer a{
+                  display: block;
+                  margin: 10px;
+                  text-decoration: none;
+                  color: #aaa;
+              }
+              .mi-lists {
+                  max-width: 1200px;
+                  min-height: 200px;
+                  margin: 0 auto 30px auto;
+                  display: flex;
+                  flex-wrap: wrap;
+              }
+              .mi-lists .mi-item{
+                  min-width: 300px;
+                  margin: 2em auto;
+                  line-height: 1.8;
+                  color: #888;
+              }
+              .mi-lists .mi-item.saled{
+                  text-decoration: line-through;
+              }
+              .mi-lists .mi-item .mi-domain{
+                  font-weight: bold;
+                  color: #000;
+              }
+              .mi-lists .mi-item .mi-price{
+                  color: #3863ea;
+                  font-weight: bold;
+              }
+              .mi-lists .mi-item.saled .mi-domain,
+              .mi-lists .mi-item.saled .mi-price{
+                  color: #aaaaaa;
+              }
+          </style>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="logo.png" alt="米表记录">
+        <h1>米表记录</h1>
+    </header>
+
+    <div class="feature">
+        <a class="search-link" href="/price">
+            <svg class="search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30"><path d="M949.76 884.3264a88.68864 88.68864 0 0 1-25.64096 62.67904 87.14752 87.14752 0 0 1-123.76576 0.16896l-164.29568-160.87552a382.4128 382.4128 0 0 1-26.43968 12.6208 382.83776 382.83776 0 0 1-300.032 0 383.38048 383.38048 0 0 1-122.48064-83.39968 391.296 391.296 0 0 1 0-550.36928 384.56832 384.56832 0 0 1 627.55328 123.648 391.00416 391.00416 0 0 1-40.704 376.57088l150.32832 156.56448a88.576 88.576 0 0 1 25.47712 62.39232z m-153.6512-444.04736c0-186.33216-150.41536-337.92-335.30368-337.92s-335.32928 151.6032-335.32928 337.92S275.89632 778.24 460.8 778.24s335.3088-151.64928 335.3088-337.96096z m-503.61344 168.90368a240.45568 240.45568 0 0 1 0-337.73568l34.63168 40.07424a183.46496 183.46496 0 0 0 0 257.50528z"></path></svg>
+            <span>上架捡漏</span>
+        </a>
+        <a class="search-link" href="/links">
+            <svg class="search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5754" width="200" height="200"><path d="M926.72 304.64l-51.712-193.024C859.136 51.712 797.184 15.872 737.28 31.744L90.624 205.312C61.44 212.992 37.376 231.424 22.016 257.536S3.072 313.856 10.752 343.04l110.592 411.648v127.488c0 61.952 50.688 112.64 112.64 112.64h669.184c61.952 0 112.64-50.688 112.64-112.64V414.72c0-54.272-38.4-99.328-89.088-110.08zM70.144 327.168c-7.168-27.136 8.704-55.296 36.352-62.976L752.64 91.136c4.608-1.024 8.704-1.536 13.312-1.536 22.528 0 43.52 15.36 49.664 37.888l46.592 174.592H233.984c-61.952 0-112.64 50.688-112.64 112.64v102.912l-51.2-190.464z m884.224 555.008c0 28.16-23.04 51.2-51.2 51.2H233.984c-28.16 0-51.2-23.04-51.2-51.2V414.72c0-28.16 23.04-51.2 51.2-51.2h669.184c28.16 0 51.2 23.04 51.2 51.2v467.456z"></path><path d="M726.528 502.272c-5.632-15.872-23.552-24.064-39.424-18.432l-244.736 89.088c-15.872 5.632-24.064 23.552-18.432 39.424 4.608 12.288 16.384 20.48 28.672 20.48 3.584 0 7.168-0.512 10.752-2.048l244.736-89.088c15.872-6.144 24.576-23.552 18.432-39.424zM739.328 626.688l-244.736 89.088c-15.872 5.632-24.064 23.552-18.432 39.424 4.608 12.288 16.384 20.48 28.672 20.48 3.584 0 7.168-0.512 10.752-2.048l244.736-89.088c15.872-5.632 24.064-23.552 18.432-39.424-6.144-16.384-23.552-24.576-39.424-18.432z"></path></svg>
+            <span>米表联盟</span>
+        </a>
+    </div>
+
+    <div class="mi-lists">
+        <a class="mi-item" href="/ml" style="text-decoration: none">
+            <div class="mi-domain">.ML</div>
+            <div class="mi-title">机器学习系列</div>
+            <div class="mi-price">点击查看</div>
+        </a>
+                        <a href="http://PxFm.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">PxFm.com</div>
+            <div class="mi-title">像素调频</div>
+            <div class="mi-price">¥ 10000</div>
+        </a>
+                                <a href="http://SKHJ.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">SKHJ.com</div>
+            <div class="mi-title">时空幻境</div>
+            <div class="mi-price">¥ 9999</div>
+        </a>
+                                <a href="http://YTQQ.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">YTQQ.com</div>
+            <div class="mi-title">一统千秋</div>
+            <div class="mi-price">¥ 8000</div>
+        </a>
+                                <a href="http://PJXA.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">PJXA.com</div>
+            <div class="mi-title">品鉴西安 | 古韵新风</div>
+            <div class="mi-price">¥ 5000</div>
+        </a>
+                                <a href="http://HGBQ.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">HGBQ.com</div>
+            <div class="mi-title">胡歌版权 | 猴哥便签</div>
+            <div class="mi-price">¥ 5000</div>
+        </a>
+                                <a href="http://CGJia.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">CGJia.com</div>
+            <div class="mi-title">CG之家</div>
+            <div class="mi-price">¥ 4000</div>
+        </a>
+                                <a href="http://NHPQ.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">NHPQ.com</div>
+            <div class="mi-title">女孩脾气 | 男孩贫穷</div>
+            <div class="mi-price">¥ 3500</div>
+        </a>
+                                <a href="http://MiaoHua.Art" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">MiaoHua.Art</div>
+            <div class="mi-title">秒画艺术</div>
+            <div class="mi-price">¥ 3000</div>
+        </a>
+                                <a href="http://CSS.cx" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">CSS.cx</div>
+            <div class="mi-title">CSS查询</div>
+            <div class="mi-price">¥ 3000</div>
+        </a>
+                                <a href="http://PHP.red" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">PHP.red</div>
+            <div class="mi-title">最好的语言</div>
+            <div class="mi-price">¥ 3000</div>
+        </a>
+                                <a href="http://YunDaiMa.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">YunDaiMa.cn</div>
+            <div class="mi-title">云代码</div>
+            <div class="mi-price">¥ 3000</div>
+        </a>
+                                <a href="http://HollandSDS.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">HollandSDS.com</div>
+            <div class="mi-title">霍兰德职业性格测试</div>
+            <div class="mi-price">¥ 3000</div>
+        </a>
+                                <a href="http://LiveShow.ing" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">LiveShow.ing</div>
+            <div class="mi-title">现场演出进行中</div>
+            <div class="mi-price">¥ 2000</div>
+        </a>
+                                <a href="http://AiHuanZhuang.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">AiHuanZhuang.com</div>
+            <div class="mi-title">AI换装</div>
+            <div class="mi-price">¥ 1500</div>
+        </a>
+                                <a href="http://AiMouShi.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">AiMouShi.com</div>
+            <div class="mi-title">AI谋士</div>
+            <div class="mi-price">¥ 1500</div>
+        </a>
+                                <a href="http://FengRuo.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">FengRuo.cn</div>
+            <div class="mi-title">风若</div>
+            <div class="mi-price">¥ 1500</div>
+        </a>
+                                <a href="http://ShiYiBa.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">ShiYiBa.com</div>
+            <div class="mi-title">诗意吧</div>
+            <div class="mi-price">¥ 1500</div>
+        </a>
+                                <a href="http://Slum.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">Slum.cn</div>
+            <div class="mi-title">贫民窟</div>
+            <div class="mi-price">¥ 1500</div>
+        </a>
+                                <a href="http://JDBSN.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">JDBSN.com</div>
+            <div class="mi-title">区块链网络</div>
+            <div class="mi-price">¥ 1300</div>
+        </a>
+                                <a href="http://NNOO.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">NNOO.cn</div>
+            <div class="mi-title">双叠NO</div>
+            <div class="mi-price">¥ 1200</div>
+        </a>
+                                <a href="http://Church.Wang" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">Church.Wang</div>
+            <div class="mi-title">教堂</div>
+            <div class="mi-price">¥ 1000</div>
+        </a>
+                                <a href="http://Startle.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">Startle.cn</div>
+            <div class="mi-title">惊吓</div>
+            <div class="mi-price">¥ 1000</div>
+        </a>
+                                <a href="http://Hatred.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">Hatred.cn</div>
+            <div class="mi-title">仇恨</div>
+            <div class="mi-price">¥ 1000</div>
+        </a>
+                                <a href="http://Reing.cn" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">Reing.cn</div>
+            <div class="mi-title">持续努力 | 不懈奋斗</div>
+            <div class="mi-price">¥ 800</div>
+        </a>
+                                <a href="http://QiuZi.net" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">QiuZi.net</div>
+            <div class="mi-title">求子</div>
+            <div class="mi-price">¥ 800</div>
+        </a>
+                                <a href="http://Vim.hk" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">Vim.hk</div>
+            <div class="mi-title">vim工具</div>
+            <div class="mi-price">¥ 800</div>
+        </a>
+                                <a href="http://MianBei.net" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">MianBei.net</div>
+            <div class="mi-title">棉被 | 缅北</div>
+            <div class="mi-price">¥ 800</div>
+        </a>
+                                <a href="http://XiaoKeLian.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">XiaoKeLian.com</div>
+            <div class="mi-title">小可怜</div>
+            <div class="mi-price">¥ 500</div>
+        </a>
+                                <a href="http://BuSiCang.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">BuSiCang.com</div>
+            <div class="mi-title">不私藏</div>
+            <div class="mi-price">¥ 300</div>
+        </a>
+                                <a href="http://ChouKua.com" target="_blank" class="mi-item" style="text-decoration: none">
+            <div class="mi-domain">ChouKua.com</div>
+            <div class="mi-title">筹夸</div>
+            <div class="mi-price">¥ 200</div>
+        </a>
+                                <div class="mi-item saled">
+            <div class="mi-domain">PSDY.com</div>
+            <div class="mi-title">多终端在线</div>
+            <div class="mi-price">已售</div>
+        </div>
+                    </div>
+    <footer class="footer">
+        <a class="copy">© miprices.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱：276141@qq.com</a>
+        <a href="https://beian.miit.gov.cn/" class="beian" target="_blank">皖ICP备15014号</a>
+        <!-- darkmode暗黑模式开始left 左 右 right 底部 bottom-->
+        <!--   <script src="https://cdn.bootcss.com/Darkmode.js/1.5.7/darkmode-js.js"></script> -->
+        <!-- darkmode js bootcss cdn或者jsdelivr cdn -->
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+        <script>
+         var options = {
+                bottom: "32px",                 // default: '32px'  底部
+                right: "32px",                  // default: '32px' 右
+                left: "unset",                  // default: 'unset' 左
+                time: "0.5s",                   // default: '0.3s' 过渡时间
+                mixColor: "#fff",               // default: '#fff' 混合层背景色
+                backgroundColor: "#fff",        // default: '#fff' 创建的背景层背景色
+                buttonColorDark: "#262728",     // default: '#100f2c' 亮色状态下的按钮颜色
+                buttonColorLight: "#fff",       // default: '#fff' 暗色状态下的按钮色
+                saveInCookies: true,            // default: true, 是否存在cookie 默认 local storage
+                label: "🌓",                    // default: '' 按钮中的内容
+                autoMatchOsTheme: true,         // default: true 跟随系统设置
+            };
+            let darkmode = new Darkmode(options);
+            darkmode.showWidget();
+
+            $("document").ready(function () {
+                if (darkmode.isActivated()) {
+                    document.getElementById("light-mode").style.display = "none";
+                    document.getElementById("dark-mode").style.display = "flex";
+                } else {
+                    document.getElementById("light-mode").style.display = "flex";
+                    document.getElementById("dark-mode").style.display = "none";
+                }
+            });
+
+            $(".darkmode-toggle").click(function () {
+                if (darkmode.isActivated()) {
+                    document.getElementById("light-mode").style.display = "none";
+                    document.getElementById("dark-mode").style.display = "flex";
+                } else {
+                    document.getElementById("light-mode").style.display = "flex";
+                    document.getElementById("dark-mode").style.display = "none";
+                }
+            });
+        </script>
+             <!-- darkmode暗黑模式结束 -->
+    </footer>
+</body>
+
+</html>

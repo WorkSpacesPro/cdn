@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:300,400,500,600,700");
+
+#wrapper-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+
+body {
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 0.9rem;
+  padding: 0.6rem 0;
+}
+
+.title {
+  font-family: "Catamaran", sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.17;
+  margin: 0 auto;
+  color: #ff5c7c;
+  display: block;
+  pointer-events: none;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: "Catamaran", sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  margin: 0 0.9rem;
+  color: #00a1d6;
+  display: block;
+  pointer-events: none;
+}
+
+.luckylink {
+  text-align: right;
+  margin-right: 0.9rem;
+}
+
+a.white-mode:link, a.white-mode:visited, a.white-mode:active {
+  font-family: "Catamaran", sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: #00a1d6;
+  padding: 0.09rem 0.6rem;
+  color: #f7f7f7;
+  border-radius: 0.3rem;
+}
+a.white-mode--highlight:link, a.white-mode--highlight:visited, a.white-mode--highlight:active {
+  background: #293FE9;
+}
+a.white-mode:hover {
+  background: #ff5c7c;
+  color: #f7f7f7;
+}
+
+@media screen and (max-width: 600px){
+
+  #wrapper-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+  }
+
+  body {
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 0.06);
+    width: 100%;
+    background:url('lucky.dog.png') no-repeat 0 0;
+    padding: 0.6rem 0;
+  }
+
+  .title {
+    font-family: "Catamaran", sans-serif;
+    font-weight: 700;
+    font-size: 2.7rem;
+    line-height: 1.2;
+    text-align: center;
+    color: #ff5c7c;
+    display: block;
+    pointer-events: none;
+  }
+
+  .subtitle {
+    font-family: "Catamaran", sans-serif;
+    font-weight: 300;
+    font-size: 1.56rem;
+    line-height: 1.5;
+    margin: 0 1.2rem;
+    color: #00a1d6;
+    display: block;
+    pointer-events: none;
+  }
+
+  .luckylink {
+    text-align: right;
+    margin-right: 1.2rem;
+  }
+
+  a.white-mode:link, a.white-mode:visited, a.white-mode:active {
+    font-family: "Catamaran", sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+    background: #00a1d6;
+    padding: 0.09rem 0.6rem;
+    color: #f7f7f7;
+    border-radius: 0.3rem;
+  }
+  a.white-mode--highlight:link, a.white-mode--highlight:visited, a.white-mode--highlight:active {
+    background: #293FE9;
+  }
+  a.white-mode:hover {
+    background: #ff5c7c;
+    color: #f7f7f7;
+  }
+}

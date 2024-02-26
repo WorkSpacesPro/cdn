@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>heilo.world</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="in [at] xzs.org">
+      <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="keywords" content="domain name, business name, company name, product name">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+</head>
+<body>
+  <div class="wrap">
+    <h1>heilo.world</h1>
+    <p>The domain name <i></i>is <strong>for sale! </strong>, you can<i></i> <a href="https://xzs.org/" rel="external nofollow" style="font-weight: bold;background-image: linear-gradient(-45deg,#ff9800,#f546f9);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">click here<sup>(to)</sup> contact owner<sup>(!)</sup></a>.</p>
+    <address>Copyright © <a href="https://www.xzs.org/">XZS.ORG</a></address>
+</div>
+ <canvas id="gradient-canvas" data-transition-in="" width="1502" height="600" class="isLoaded">
+  <script src="static/gradient.js" type="text/javascript"></script>
+	<script>//禁止右键
+		function click(e) {
+			if (document.all) {
+				if (event.button == 2 || event.button == 3) {
+					alert("欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！");
+					oncontextmenu = 'return false';
+				}
+			}
+			if (document.layers) {
+				if (e.which == 3) {
+					oncontextmenu = 'return false';
+				}
+			}
+		}
+		if (document.layers) {
+			document.captureEvents(Event.MOUSEDOWN);
+		}
+		document.onmousedown = click;
+		document.oncontextmenu = new Function("return false;")
+		document.onkeydown = document.onkeyup = document.onkeypress = function () {
+			if (window.event.keyCode == 12) {
+				window.event.returnValue = false;
+				return (false);
+			}
+		}
+	</script>
+	<script>//禁止F12
+		function fuckyou() {
+			window.close(); //关闭当前窗口(防抽)
+			window.location = "about:blank"; //将当前窗口跳转置空白页
+		}
+		function click(e) {
+			if (document.all) {
+				if (event.button == 2 || event.button == 3) {
+					alert("欢迎光临寒舍，有什么需要帮忙的话，请与站长联系！谢谢您的合作！！！");
+					oncontextmenu = 'return false';
+				}
+			}
+			if (document.layers) {
+				if (e.which == 3) {
+					oncontextmenu = 'return false';
+				}
+			}
+		}
+		if (document.layers) {
+			fuckyou();
+			document.captureEvents(Event.MOUSEDOWN);
+		}
+		document.onmousedown = click;
+		document.oncontextmenu = new Function("return false;")
+		document.onkeydown = document.onkeyup = document.onkeypress = function () {
+			if (window.event.keyCode == 123) {
+				fuckyou();
+				window.event.returnValue = false;
+				return (false);
+			}
+		}
+	</script>
+
+
+	<script src="static/main.js"></script>
+	<!--禁用审查元素-->
+	<script src="static/console-ban.min.js"></script>
+	<script>
+		// default options
+		ConsoleBan.init()
+		// custom options
+		ConsoleBan.init({
+			redirect: '/404.html'
+		})
+	</script>
+</canvas>
+</body>
+</html>

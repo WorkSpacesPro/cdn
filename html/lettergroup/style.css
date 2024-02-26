@@ -1,0 +1,128 @@
+
+    @font-face {
+      font-family: 'branch-zystoo';
+      src: url('font/branch-zystoo.woff') format('TrueType');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+        .text-effect {
+            overflow: hidden;
+            position: relative;
+            filter: contrast(110%) brightness(190%);
+        }
+
+        .showtext {
+            position: relative;
+            background: black;
+            color: transparent;
+        }
+
+        .showtext::before,
+        .showtext::after {
+            content: attr(data-text);
+            color: white;
+            filter: blur(0.02em);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .showtext::after {
+            mix-blend-mode: difference;
+        }
+
+        .gradient,
+        .spotlight {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gradient {
+            background: linear-gradient(45deg, red, blue);
+            mix-blend-mode: multiply;
+        }
+
+        .spotlight {
+            -webkit-animation: light 5s infinite linear;
+            animation: light 5s infinite linear;
+            background: radial-gradient(circle, white, transparent 25%) 0 0/25% 25%, radial-gradient(circle, white, black 25%) 50% 50%/12.5% 12.5%;
+            top: -100%;
+            left: -100%;
+            mix-blend-mode: color-dodge;
+        }
+
+        @-webkit-keyframes light {
+            100% {
+                transform: translate3d(50%, 50%, 0);
+            }
+        }
+
+        @keyframes light {
+            100% {
+                transform: translate3d(50%, 50%, 0);
+            }
+        }
+
+        .showtext {
+            font: 700 10rem "Lato", sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+        }
+
+        .showtext:focus {
+            outline: none;
+            border: 1px dotted white;
+        }
+
+        body {
+            background: black;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        @media only screen and (max-width: 600px) {
+      .showtext {
+            font: 700 3rem "Lato", sans-serif;
+            }
+        }
+        
+        footer {
+	        position: fixed;
+	        left: 0;
+	        bottom: 0;
+	        width: 100%;
+	        color: #FFFFFF;
+	        text-align: center;
+	         font-weight:bold;
+	        padding: 20px 0;
+	        font-family: "branch-zystoo";
+        }
+        sup, a {
+      background-image: linear-gradient(-45deg,#0015ff,#f546f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+        a {
+      display: inline-block;
+        }
+        a:hover {
+      text-decoration: none;
+      background-image: linear-gradient(-45deg,#f546f9,#0015ff);
+    }
+        sup {
+      font-weight: 700;
+      font-family: "branch-zystoo";
+      font-size: 0.7em;
+      display: inline-block;
+      line-height: 1;
+    }

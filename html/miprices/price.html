@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title>域名上架价格</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="X-CSRF-TOKEN" content="mo0O3FhQPHuoty6pqxokXGJm8cqgXLJgYNpUPsyV">
+    <link rel="stylesheet" href="normalize.min.css" media="all">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
+    <![endif]-->
+    <style>
+        body{
+            text-align: center;
+        }
+        .header .logo{
+            width: 80px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer{
+            font-size: 13px;
+            color: #aaa;
+        }
+        .footer a{
+            display: block;
+            margin: 10px;
+            text-decoration: none;
+            color: #aaa;
+        }
+        .search-box {
+            padding: 0 2em;
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .search-box .search-input{
+            flex: 1;
+            border-style: solid;
+            border-color: #152378;
+            border-width: 2px 0 2px 2px;
+            outline: none;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 6px 0 0 6px;
+        }
+        .search-box .search-btn{
+            width: 80px;
+            background-color: #152378;
+            color: #fff;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            border: none;
+        }
+        .search-box .search-btn .search-icon{
+            padding-top: 2px;
+            fill: #ffffff;
+        }
+        .result{
+            min-height: 300px;
+        }
+        .result .info{
+            min-width: 300px;
+            margin: 0 auto;
+            padding: 100px 0;
+            line-height: 2;
+        }
+        .result .empty{
+            color: red;
+        }
+
+        .result .icon{
+            width: 100px;
+            height: 100px;
+            margin: 2em 0;
+            fill: #dddddd;
+        }
+
+        .result .info{
+            color: #3863ea;
+        }
+
+        .mi-lists {
+            max-width: 600px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .mi-lists .mi-item{
+            min-width: 300px;
+            margin: 1.5em auto;
+            line-height: 1.8;
+            color: #888;
+            text-decoration: none;
+        }
+        .mi-lists .mi-item .mi-domain{
+            font-weight: bold;
+            color: #000;
+            text-transform: lowercase;
+        }
+        .mi-lists .mi-item .mi-price{
+            color: #3863ea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/"><img class="logo" src="logo.png" alt="米表记录"></a>
+    </header>
+
+    <form class="search-box" method="GET">
+        <input class="search-input" name="domain" type="text" autocomplete="off" placeholder="输入域名查询最近上架价格" value="">
+        <button class="search-btn" type="submit">
+            <svg class="search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30"><path d="M949.76 884.3264a88.68864 88.68864 0 0 1-25.64096 62.67904 87.14752 87.14752 0 0 1-123.76576 0.16896l-164.29568-160.87552a382.4128 382.4128 0 0 1-26.43968 12.6208 382.83776 382.83776 0 0 1-300.032 0 383.38048 383.38048 0 0 1-122.48064-83.39968 391.296 391.296 0 0 1 0-550.36928 384.56832 384.56832 0 0 1 627.55328 123.648 391.00416 391.00416 0 0 1-40.704 376.57088l150.32832 156.56448a88.576 88.576 0 0 1 25.47712 62.39232z m-153.6512-444.04736c0-186.33216-150.41536-337.92-335.30368-337.92s-335.32928 151.6032-335.32928 337.92S275.89632 778.24 460.8 778.24s335.3088-151.64928 335.3088-337.96096z m-503.61344 168.90368a240.45568 240.45568 0 0 1 0-337.73568l34.63168 40.07424a183.46496 183.46496 0 0 0 0 257.50528z"></path></svg>
+        </button>
+    </form>
+
+    <div class="result">
+            <div class="info">
+            可查近期在国内主流平台新上架的<b>低价域名</b><br>
+            数据很不完整还请谅解~
+        </div>
+             <h3>最近域名推荐</h3>
+    <div class="mi-lists">
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=9748.com.cn" target="_blank">
+            <div class="mi-domain">9748.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.23</div>
+            <div class="mi-price">¥ 9</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=1478.com.cn" target="_blank">
+            <div class="mi-domain">1478.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.23</div>
+            <div class="mi-price">¥ 9</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=o4e.cn" target="_blank">
+            <div class="mi-domain">O4E.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.23</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=4284.cn" target="_blank">
+            <div class="mi-domain">4284.CN</div>
+            <div class="mi-title">易名中国 · 2024.01.23</div>
+            <div class="mi-price">¥ 498</div>
+        </a>
+                <a class="mi-item" href="https://www.west.cn/ykj/view.asp?domain=occur.cc" target="_blank">
+            <div class="mi-domain">OCCUR.CC</div>
+            <div class="mi-title">西部数据 · 2024.01.23</div>
+            <div class="mi-price">¥ 344</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=rrzuwu.com" target="_blank">
+            <div class="mi-domain">RRZUWU.COM</div>
+            <div class="mi-title">阿里云 · 2024.01.22</div>
+            <div class="mi-price">¥ 2</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=vqkp.com" target="_blank">
+            <div class="mi-domain">VQKP.COM</div>
+            <div class="mi-title">易名中国 · 2024.01.22</div>
+            <div class="mi-price">¥ 698</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=ivb.com.cn" target="_blank">
+            <div class="mi-domain">IVB.COM.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 380</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=4501.cn" target="_blank">
+            <div class="mi-domain">4501.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 430</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=4301.cn" target="_blank">
+            <div class="mi-domain">4301.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 430</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=t49.cn" target="_blank">
+            <div class="mi-domain">T49.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 66</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=wuq.com.cn" target="_blank">
+            <div class="mi-domain">WUQ.COM.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 499</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=uyq.com.cn" target="_blank">
+            <div class="mi-domain">UYQ.COM.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 499</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=mku.com.cn" target="_blank">
+            <div class="mi-domain">MKU.COM.CN</div>
+            <div class="mi-title">爱名 · 2024.01.22</div>
+            <div class="mi-price">¥ 499</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=rkero.cn" target="_blank">
+            <div class="mi-domain">RKERO.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.21</div>
+            <div class="mi-price">¥ 2</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=c4h.cn" target="_blank">
+            <div class="mi-domain">C4H.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.21</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=0863.com.cn" target="_blank">
+            <div class="mi-domain">0863.COM.CN</div>
+            <div class="mi-title">爱名 · 2024.01.21</div>
+            <div class="mi-price">¥ 49</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=yuepo.cc" target="_blank">
+            <div class="mi-domain">YUEPO.CC</div>
+            <div class="mi-title">阿里云 · 2024.01.20</div>
+            <div class="mi-price">¥ 3</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=jletn.cn" target="_blank">
+            <div class="mi-domain">JLETN.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.20</div>
+            <div class="mi-price">¥ 4</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=qbkv.com" target="_blank">
+            <div class="mi-domain">QBKV.COM</div>
+            <div class="mi-title">易名中国 · 2024.01.19</div>
+            <div class="mi-price">¥ 725</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=xxna.com" target="_blank">
+            <div class="mi-domain">XXNA.COM</div>
+            <div class="mi-title">爱名 · 2024.01.19</div>
+            <div class="mi-price">¥ 1500</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=cddkw.cn" target="_blank">
+            <div class="mi-domain">CDDKW.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.19</div>
+            <div class="mi-price">¥ 3</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=r30.com.cn" target="_blank">
+            <div class="mi-domain">R30.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.19</div>
+            <div class="mi-price">¥ 14</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=9ah.com.cn" target="_blank">
+            <div class="mi-domain">9AH.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.19</div>
+            <div class="mi-price">¥ 14</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=5ah.com.cn" target="_blank">
+            <div class="mi-domain">5AH.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.19</div>
+            <div class="mi-price">¥ 14</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=1nx.com.cn" target="_blank">
+            <div class="mi-domain">1NX.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.19</div>
+            <div class="mi-price">¥ 14</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=qllw.com" target="_blank">
+            <div class="mi-domain">QLLW.COM</div>
+            <div class="mi-title">爱名 · 2024.01.19</div>
+            <div class="mi-price">¥ 1000</div>
+        </a>
+                <a class="mi-item" href="https://am.22.cn/searchResult.html?keyword=qynl.com" target="_blank">
+            <div class="mi-domain">QYNL.COM</div>
+            <div class="mi-title">爱名 · 2024.01.19</div>
+            <div class="mi-price">¥ 1000</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=t0j.cn" target="_blank">
+            <div class="mi-domain">T0J.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.19</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=4967.cn" target="_blank">
+            <div class="mi-domain">4967.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 398</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=4259.cn" target="_blank">
+            <div class="mi-domain">4259.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 358</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=qzsa.com" target="_blank">
+            <div class="mi-domain">QZSA.COM</div>
+            <div class="mi-title">易名中国 · 2024.01.18</div>
+            <div class="mi-price">¥ 999</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=u0v.cn" target="_blank">
+            <div class="mi-domain">U0V.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=x7y.cn" target="_blank">
+            <div class="mi-domain">X7Y.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=75281.com" target="_blank">
+            <div class="mi-domain">75281.COM</div>
+            <div class="mi-title">易名中国 · 2024.01.18</div>
+            <div class="mi-price">¥ 688</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=xgzv.com" target="_blank">
+            <div class="mi-domain">XGZV.COM</div>
+            <div class="mi-title">易名中国 · 2024.01.18</div>
+            <div class="mi-price">¥ 1300</div>
+        </a>
+                <a class="mi-item" href="https://auction.ename.com/tao/buynow?domain=2&amp;domainsld=ogv.cn" target="_blank">
+            <div class="mi-domain">OGV.CN</div>
+            <div class="mi-title">易名中国 · 2024.01.18</div>
+            <div class="mi-price">¥ 1730</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=l92.com.cn" target="_blank">
+            <div class="mi-domain">L92.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=t38.com.cn" target="_blank">
+            <div class="mi-domain">T38.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=f93.com.cn" target="_blank">
+            <div class="mi-domain">F93.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=n72.com.cn" target="_blank">
+            <div class="mi-domain">N72.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=oabbx.cn" target="_blank">
+            <div class="mi-domain">OABBX.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.18</div>
+            <div class="mi-price">¥ 4</div>
+        </a>
+                <a class="mi-item" href="https://www.west.cn/ykj/view.asp?domain=djo.cc" target="_blank">
+            <div class="mi-domain">DJO.CC</div>
+            <div class="mi-title">西部数据 · 2024.01.18</div>
+            <div class="mi-price">¥ 72</div>
+        </a>
+                <a class="mi-item" href="https://www.west.cn/ykj/view.asp?domain=exf.cc" target="_blank">
+            <div class="mi-domain">EXF.CC</div>
+            <div class="mi-title">西部数据 · 2024.01.18</div>
+            <div class="mi-price">¥ 72</div>
+        </a>
+                <a class="mi-item" href="https://www.west.cn/ykj/view.asp?domain=kvn.cc" target="_blank">
+            <div class="mi-domain">KVN.CC</div>
+            <div class="mi-title">西部数据 · 2024.01.18</div>
+            <div class="mi-price">¥ 72</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=zuboke.cn" target="_blank">
+            <div class="mi-domain">ZUBOKE.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.17</div>
+            <div class="mi-price">¥ 4</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=hlqm.com" target="_blank">
+            <div class="mi-domain">HLQM.COM</div>
+            <div class="mi-title">阿里云 · 2024.01.17</div>
+            <div class="mi-price">¥ 1035</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=zqlg.com" target="_blank">
+            <div class="mi-domain">ZQLG.COM</div>
+            <div class="mi-title">阿里云 · 2024.01.17</div>
+            <div class="mi-price">¥ 1035</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=p28.com.cn" target="_blank">
+            <div class="mi-domain">P28.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.17</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+                <a class="mi-item" href="https://mi.aliyun.com/detail/online.html?domainName=2kr.com.cn" target="_blank">
+            <div class="mi-domain">2KR.COM.CN</div>
+            <div class="mi-title">阿里云 · 2024.01.17</div>
+            <div class="mi-price">¥ 58</div>
+        </a>
+            </div>
+        </div>
+
+    <footer class="footer">
+        <a class="copy">© miprices.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱：27614@qq.com</a>
+        <a href="https://beian.miit.gov.cn/" class="beian" target="_blank">皖ICP备1501号</a>
+    </footer>
+</body>
+</html>

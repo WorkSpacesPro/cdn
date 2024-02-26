@@ -1,0 +1,694 @@
+
+<!doctype html>
+<html lang="zh-CN"  x-data="{search:'',url:''}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,viewport-fit=cover,initial-scale=1">
+  <title>域名工具箱 - 用于了解域名注册于续费等信息的资讯</title>
+  <meta name="title" content="域名工具箱">
+  <meta name="description" content="用于了解域名注册于续费等信息的资讯"/>
+  <meta name="keywords" content="注册域名,抢注域名,域名续费,国别域名注册,Whois查询,dns查询，"/>
+
+  <link rel="dns-prefetch" href="//cdn.staticfile.org"/>
+  <link rel="apple-touch-icon" href="assets/favicon.webp">
+  <link rel="icon" href="assets/favicon.webp">
+  <link href="assets/style.css" rel="stylesheet">
+  <!--<script src="./3.0.24.js" defer></script>-->
+
+</head>
+<body class="bg-white dark:bg-gray-900">
+<nav class="bg-white shadow dark:bg-gray-800 fixed inset-x-0 z-30" x-data="{menu:false}">
+        <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center flex-shrink-0 text-base font-bold text-sky-500 transition-colors duration-200 transform dark:text-white lg:text-xl"><svg class="fill-current h-6 w-6 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"></path></svg><span>域名工具箱</span>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+<div class="bg-gray-50 dark:bg-gray-700 pt-24 pb-10">
+<div class="max-w-screen-md px-4 py-6 mx-auto">
+<!-- Right -->
+<div class="bg-white dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-600 flex items-center justify-between">
+    <input type="text" x-model="search" placeholder="我建议你用谷歌👉" class="bg-transparent py-1 text-gray-600 dark:text-gray-200 px-4 focus:outline-none flex-grow" />
+<a :href="url" x-effect="if(search){url='https://www.baidu.com/s?ie=UTF-8&wd='+search;}else{url=''}" class="hidden" x-ref="baidu" target="_blank"></a>
+<button class="py-2 px-4 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-200 rounded-r border-l border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 active:bg-gray-200 dark:active:bg-black disabled:opacity-50 inline-flex items-center focus:outline-none" @click="if(search){$refs.baidu.click();}">搜索</button>
+</div>
+
+</div>
+</div>
+
+
+
+<section class="py-3 sm:py-6 bg-white dark:bg-gray-900">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>实用网站</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://suoxie.gjcha.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="可查询英文字母中英文含义。" rel="noopener noreferrer">
+        <img alt="英文缩写查询" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://suoxie.gjcha.com">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">英文缩写查询</h2>
+            <p class="text-gray-500 line-1">可查询英文字母中英文含义。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.iana.org/domains/root/db" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="国别后缀注册管理局联系方式" rel="noopener noreferrer">
+        <img alt="iana" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.iana.org/domains/root/db">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">iana</h2>
+            <p class="text-gray-500 line-1">国别后缀注册管理局联系方式</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.expireddomains.net/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="很多人都在用的过期域名查询网站" rel="noopener noreferrer">
+        <img alt="expired" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.expireddomains.net/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">expired</h2>
+            <p class="text-gray-500 line-1">很多人都在用的过期域名查询网站</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="http://xn--eqrt2g.xn--vuq861b/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="国内可备案后缀查询" rel="noopener noreferrer">
+        <img alt="域名信息" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/http://xn--eqrt2g.xn--vuq861b/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">域名信息</h2>
+            <p class="text-gray-500 line-1">国内可备案后缀查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.whtop.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="查询本地域名主机商平台，看你怎么用了。" rel="noopener noreferrer">
+        <img alt="WHTOP" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.whtop.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">WHTOP</h2>
+            <p class="text-gray-500 line-1">查询本地域名主机商平台，看你怎么用了。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://dnpedia.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="功能比较多，自己看着研究吧" rel="noopener noreferrer">
+        <img alt="dnpedia" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://dnpedia.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">dnpedia</h2>
+            <p class="text-gray-500 line-1">功能比较多，自己看着研究吧</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.domnest.com/free-domains" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="可以免费注册域名的信息" rel="noopener noreferrer">
+        <img alt="免费域名" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.domnest.com/free-domains">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">免费域名</h2>
+            <p class="text-gray-500 line-1">可以免费注册域名的信息</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.domnest.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="服务器 域名比价" rel="noopener noreferrer">
+        <img alt="domnest" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.domnest.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">domnest</h2>
+            <p class="text-gray-500 line-1">服务器 域名比价</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://domainmod.org/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="搭建自己的管理平台，自己管理自己域名。" rel="noopener noreferrer">
+        <img alt="域名自托管" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://domainmod.org/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">域名自托管</h2>
+            <p class="text-gray-500 line-1">搭建自己的管理平台，自己管理自己域名。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://archive.org/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="书籍，电影，网址，信息等存档信息" rel="noopener noreferrer">
+        <img alt="档案馆" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://archive.org/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">档案馆</h2>
+            <p class="text-gray-500 line-1">书籍，电影，网址，信息等存档信息</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.xe.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="各国货币汇率查询" rel="noopener noreferrer">
+        <img alt="货币转换" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.xe.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">货币转换</h2>
+            <p class="text-gray-500 line-1">各国货币汇率查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.lookssl.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="免实名一年ssl证书申请" rel="noopener noreferrer">
+        <img alt="免费ssl证书" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.lookssl.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">免费ssl证书</h2>
+            <p class="text-gray-500 line-1">免实名一年ssl证书申请</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://freessl.cn/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title=" 免费通配符ssl证书申请" rel="noopener noreferrer">
+        <img alt="ssl证书免费" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://freessl.cn/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">ssl证书免费</h2>
+            <p class="text-gray-500 line-1"> 免费通配符ssl证书申请</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="http://dnpric.es/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="历史成交价格查询" rel="noopener noreferrer">
+        <img alt="历史成交价格查询" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/http://dnpric.es/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">历史成交价格查询</h2>
+            <p class="text-gray-500 line-1">历史成交价格查询</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-gray-50 dark:bg-gray-700">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>域名比价</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://tldes.com/cheapest-domains" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="域名注册多平台服务商比价信息查询" rel="noopener noreferrer">
+        <img alt="TLDES" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://tldes.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">TLDES</h2>
+            <p class="text-gray-500 line-1">域名注册多平台服务商比价信息查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.nazhumi.com" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="国内域名注册比价平台，据说请了大妈手工抓取数据,哪煮米，国人做的域名比价平台，里面有不少支持支付宝的域名注册商。甄选全球 60 家极具性价比的域名注册商。提供超过 800 种域名后缀可供比价。" rel="noopener noreferrer">
+        <img alt="哪煮米" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.nazhumi.com">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">哪煮米</h2>
+            <p class="text-gray-500 line-1">国内域名注册比价平台，据说请了大妈手工抓取数据,哪煮米，国人做的域名比价平台，里面有不少支持支付宝的域名注册商。甄选全球 60 家极具性价比的域名注册商。提供超过 800 种域名后缀可供比价。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://tld-list.com" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="域名注册多平台服务商比价信息查询,支持中文，老牌域名比价平台，支持 3000   域名后缀查询，经常会有一些不同域名注册平台优惠信息。" rel="noopener noreferrer">
+        <img alt="tld-list" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://tld-list.com">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">tld-list</h2>
+            <p class="text-gray-500 line-1">域名注册多平台服务商比价信息查询,支持中文，老牌域名比价平台，支持 3000   域名后缀查询，经常会有一些不同域名注册平台优惠信息。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.cheapestdomain.info/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="进入首页就能看到常见域名最新优惠信息" rel="noopener noreferrer">
+        <img alt="cheapest" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.cheapestdomain.info/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">cheapest</h2>
+            <p class="text-gray-500 line-1">进入首页就能看到常见域名最新优惠信息</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.domcomp.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="希望他能继续维护吧" rel="noopener noreferrer">
+        <img alt="domcomp" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.domcomp.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">domcomp</h2>
+            <p class="text-gray-500 line-1">希望他能继续维护吧</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://namebeta.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="可注册域名搜索 比价 推荐注册地址" rel="noopener noreferrer">
+        <img alt="namebeta" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://namebeta.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">namebeta</h2>
+            <p class="text-gray-500 line-1">可注册域名搜索 比价 推荐注册地址</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.domain265.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="注册续费转入比价=有模有样" rel="noopener noreferrer">
+        <img alt="域名265" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.domain265.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">域名265</h2>
+            <p class="text-gray-500 line-1">注册续费转入比价=有模有样</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://miprices.com/price" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="低价米历史上架价格查询" rel="noopener noreferrer">
+        <img alt="捡漏平台" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://miprices.com/image/logo.png">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">捡漏平台</h2>
+            <p class="text-gray-500 line-1">低价米历史上架价格查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.domnest.com/tld-list" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="注册商价格查看" rel="noopener noreferrer">
+        <img alt="注册商价格" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.domnest.com/tld-list">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">注册商价格</h2>
+            <p class="text-gray-500 line-1">注册商价格查看</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-white dark:bg-gray-900">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>whois查询</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://tian.hu/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="全球Whois查询 - 功能齐全，后缀支持率大" rel="noopener noreferrer">
+        <img alt="tian.hu" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://tian.hu/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">tian.hu</h2>
+            <p class="text-gray-500 line-1">全球Whois查询 - 功能齐全，后缀支持率大</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://who.cx/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="全国别后缀WHOIS查询" rel="noopener noreferrer">
+        <img alt="who.cx" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://who.cx/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">who.cx</h2>
+            <p class="text-gray-500 line-1">全国别后缀WHOIS查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://whois.whoisxmlapi.com" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="挺强大，免费的就够用了。" rel="noopener noreferrer">
+        <img alt="whois查询" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://whois.whoisxmlapi.com">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">whois查询</h2>
+            <p class="text-gray-500 line-1">挺强大，免费的就够用了。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://dns.ong" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="查询dns的信息、生效情况" rel="noopener noreferrer">
+        <img alt="dns查询" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://dns.ong">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">dns查询</h2>
+            <p class="text-gray-500 line-1">查询dns的信息、生效情况</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-gray-50 dark:bg-gray-700">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>DNS历史</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://completedns.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="最大的DNS记录历史数据库，检测到超过22亿个名称服务器更改，每天更新。我们的高级批量域历史检查器允许一次查找多达5000个域。" rel="noopener noreferrer">
+        <img alt="Complete" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://completedns.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">Complete</h2>
+            <p class="text-gray-500 line-1">最大的DNS记录历史数据库，检测到超过22亿个名称服务器更改，每天更新。我们的高级批量域历史检查器允许一次查找多达5000个域。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://securitytrails.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="功能强大查询历史绑定ip时间线" rel="noopener noreferrer">
+        <img alt="SecurityTrails" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://securitytrails.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">SecurityTrails</h2>
+            <p class="text-gray-500 line-1">功能强大查询历史绑定ip时间线</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://dnshistory.org/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="简单且实际，更多功能有待发掘" rel="noopener noreferrer">
+        <img alt="dnshistory" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://dnshistory.org/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">dnshistory</h2>
+            <p class="text-gray-500 line-1">简单且实际，更多功能有待发掘</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.xz.com/domainTool/history" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="建站历史查询，另外它的工具箱有很多功能。" rel="noopener noreferrer">
+        <img alt="XZ工具" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.xz.com/domainTool/history">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">XZ工具</h2>
+            <p class="text-gray-500 line-1">建站历史查询，另外它的工具箱有很多功能。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.myname.tech/history" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="主流域名查询，凑活用吧。" rel="noopener noreferrer">
+        <img alt="myname" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.myname.tech/history">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">myname</h2>
+            <p class="text-gray-500 line-1">主流域名查询，凑活用吧。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.benmi.com/whoishistory/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="还行 就是收费 能接受就用 " rel="noopener noreferrer">
+        <img alt="笨米网" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.benmi.com/whoishistory/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">笨米网</h2>
+            <p class="text-gray-500 line-1">还行 就是收费 能接受就用 </p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://seo.juziseo.com/snapshot/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="历史建站记录查询" rel="noopener noreferrer">
+        <img alt="桔子SEO" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://seo.juziseo.com/snapshot/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">桔子SEO</h2>
+            <p class="text-gray-500 line-1">历史建站记录查询</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-white dark:bg-gray-900">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>注册数据</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://zonefiles.io/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="后缀注册量排名查询" rel="noopener noreferrer">
+        <img alt="zonefiles" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://zonefiles.io/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">zonefiles</h2>
+            <p class="text-gray-500 line-1">后缀注册量排名查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://domains-monitor.com/cn/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="收费：所有已删除和已注册的域名数据下载" rel="noopener noreferrer">
+        <img alt="域名数据下载" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://domains-monitor.com/cn/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">域名数据下载</h2>
+            <p class="text-gray-500 line-1">收费：所有已删除和已注册的域名数据下载</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.whoisextractor.in" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="提供完整的域名数据库服务以及域名所有者姓名、电子邮件和电话号码。" rel="noopener noreferrer">
+        <img alt="whoisextractor" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://www.whoisextractor.in/assets/img/logo.png">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">whoisextractor</h2>
+            <p class="text-gray-500 line-1">提供完整的域名数据库服务以及域名所有者姓名、电子邮件和电话号码。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.west.cn/web/registration" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="全部后缀注册量统计查询" rel="noopener noreferrer">
+        <img alt="全后缀注册量" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.west.cn/web/registration">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">全后缀注册量</h2>
+            <p class="text-gray-500 line-1">全部后缀注册量统计查询</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://ntldstats.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="全球后缀注册量统计" rel="noopener noreferrer">
+        <img alt="域名注册情况" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://ntldstats.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">域名注册情况</h2>
+            <p class="text-gray-500 line-1">全球后缀注册量统计</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-gray-50 dark:bg-gray-700">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>交流社区</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://dalao.net/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="全球域名论坛，互联网站长综合交流，十年之约博主论坛，生活分享平台，收集各路资源福利、主题插件，域名行情等内容；涉猎范围不局限于互联网圈子。" rel="noopener noreferrer">
+        <img alt="大佬论坛" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://dalao.net/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">大佬论坛</h2>
+            <p class="text-gray-500 line-1">全球域名论坛，互联网站长综合交流，十年之约博主论坛，生活分享平台，收集各路资源福利、主题插件，域名行情等内容；涉猎范围不局限于互联网圈子。</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.namepros.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="国外的域名交流社区" rel="noopener noreferrer">
+        <img alt="域名交流" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.namepros.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">域名交流</h2>
+            <p class="text-gray-500 line-1">国外的域名交流社区</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://wm.lt" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="一个专注于服务商和域名的交流社区" rel="noopener noreferrer">
+        <img alt="网谋论坛" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://wm.lt">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">网谋论坛</h2>
+            <p class="text-gray-500 line-1">一个专注于服务商和域名的交流社区</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-white dark:bg-gray-900">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>矢量图</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://yesicon.app/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="免费矢量图" rel="noopener noreferrer">
+        <img alt="yesicon" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://yesicon.app/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">yesicon</h2>
+            <p class="text-gray-500 line-1">免费矢量图</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.iconfont.cn/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="阿里巴巴免费矢量图" rel="noopener noreferrer">
+        <img alt="阿里巴巴" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.iconfont.cn/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">阿里巴巴</h2>
+            <p class="text-gray-500 line-1">阿里巴巴免费矢量图</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://storyset.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="免费插图" rel="noopener noreferrer">
+        <img alt="插图" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://storyset.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">插图</h2>
+            <p class="text-gray-500 line-1">免费插图</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+<section class="py-3 sm:py-6 bg-gray-50 dark:bg-gray-700">
+        <div class="container flex flex-col px-4 py-6 mx-auto">
+
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white capitalize border-b-2 border-gray-100 dark:border-gray-800 pb-1 mb-5 flex flex-row items-center"><svg class="w-5 h-5 inline text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>LOGO</span></h3>
+
+            <div class="w-full">
+<div class="flex flex-wrap -m-2">
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.brandcrowd.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="徽标 logo制作" rel="noopener noreferrer">
+        <img alt="brandcro" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.brandcrowd.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">brandcro</h2>
+            <p class="text-gray-500 line-1">徽标 logo制作</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://logo.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="logo制作" rel="noopener noreferrer">
+        <img alt="logo" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://logo.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">logo</h2>
+            <p class="text-gray-500 line-1">logo制作</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://simplified.com/" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="徽标，logo，封面制作" rel="noopener noreferrer">
+        <img alt="logo制作" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://simplified.com/">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">logo制作</h2>
+            <p class="text-gray-500 line-1">徽标，logo，封面制作</p>
+            </div>
+            </a>
+    </div>
+
+<div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <a href="https://www.brandcrowd.com" class="h-full bg-white dark:bg-gray-900 flex items-center border-gray-100 dark:border-gray-600 border p-3 rounded hover:shadow-md duration-300" target="_blank" title="一键生成任意修改" rel="noopener noreferrer">
+        <img alt="制作logo" class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://favicon.yandex.net/favicon/v2/https://www.brandcrowd.com">
+        <div class="flex-grow">
+            <h2 class="text-gray-700 dark:text-gray-200 title-font font-medium">制作logo</h2>
+            <p class="text-gray-500 line-1">一键生成任意修改</p>
+            </div>
+            </a>
+    </div>
+
+</div>
+            </div>
+        </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section id="about" class="bg-white dark:bg-gray-800 pt-10">
+        <div class="container px-6 py-8 mx-auto">
+            <div class="items-center lg:flex">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">域名工具箱</h2>
+
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md">
+                    收集关于域名注册，域名续费， whois查询，等实用性信息，为了本人更好记住和快速使用而搭建！
+                    </p>
+
+                    <div class="flex items-center mt-6 -mx-2">
+                        <a class="mx-2" href="https://shen.fan" aria-label="blog" target="_blank">
+                            <svg t="1695262161125" class="icon" viewBox="0 0 2164 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11663" width="200" height="200"><path d="M415.978716 451.019474q6.362805 0 27.041921-11.134909 19.883765-11.134909 31.814025-11.134908a28.302552 28.302552 0 0 1 7.953506 0.79535 42.865421 42.865421 0 0 1 16.702363-5.567454h4.772104q-8.748857 26.24657-39.767531 36.586128-15.111662 4.772104-70.786205 11.134909a328.300851 328.300851 0 0 0-48.516387 11.930259 197.187302 197.187302 0 0 1-42.153583 8.748857 127.256099 127.256099 0 0 1-15.907012-1.590701 131.145363 131.145363 0 0 0-16.702363-1.590701q-19.088415 0-26.246571 14.316311-3.976753 9.544207-7.158155 36.586128l-3.181403 30.223324q0 26.24657 45.334985 33.404725 15.111662-24.655869 81.125763-49.311738 94.646723-34.200077 159.865474-46.925686-10.339558 146.344513-8.748857 136.004955-31.018674 3.181402-44.539634 3.976753 0-19.883765-23.065168-55.674543l-16.702363-27.041921a32.728678 32.728678 0 0 0-19.883765-7.158155 33.170097 33.170097 0 0 0-25.45122 12.72561 52.175 52.175 0 0 0-11.930259 27.837271q-84.307165 27.837272-105.781632 47.721037 12.72561 7.158156 99.418827 14.316311 4.772104 0 38.176829 4.772104a118.451567 118.451567 0 0 1 19.088415 5.567454q11.134909 3.181402 15.907012 3.976753a88.144732 88.144732 0 0 0 17.497714-3.181402 86.693217 86.693217 0 0 1 19.088415-3.181403l19.088415-0.79535a45.251473 45.251473 0 0 1 18.293064 3.181402q25.45122 43.744284 42.153582 43.744284 29.427973 0 29.427973-40.562881a229.979607 229.979607 0 0 0-6.362805-42.153583 219.731515 219.731515 0 0 1-6.362805-44.539635v-4.772103a79.507224 79.507224 0 0 1 1.590702-12.72561 81.543322 81.543322 0 0 0 1.590701-13.520961v-16.702363a56.577266 56.577266 0 0 1 12.72561-27.04192 52.182954 52.182954 0 0 1 43.744284-22.269818 136.251514 136.251514 0 0 1 38.97218 7.953506 126.460748 126.460748 0 0 0 36.586128 7.953507 46.977384 46.977384 0 0 0 10.339558-0.795351 42.070071 42.070071 0 0 0 7.158156-23.065168q0-15.111662-19.088415-35.790778-22.269817-23.860518-25.45122-34.200076-3.976753 0-58.855945-10.339558a98.31329 98.31329 0 0 0-15.111662-1.590701h-1.590701a0.699909 0.699909 0 0 0 0.79535 0.79535q38.97218 14.316311 42.153583 31.018674-7.953506 3.976753-37.381479 3.976753a67.700244 67.700244 0 0 0-21.474467 2.386052q-12.72561-16.702363-18.293064-19.088415a16.86541 16.86541 0 0 1-8.748857 1.590702 67.557081 67.557081 0 0 1-12.725609-1.590702 208.262559 208.262559 0 0 1 22.269817-22.269817 118.535079 118.535079 0 0 0 22.269817-24.655869 117.361937 117.361937 0 0 0 4.772104-12.72561 79.137386 79.137386 0 0 1 5.567454-12.72561 163.583738 163.583738 0 0 1 11.134909-13.52096 160.625034 160.625034 0 0 0 11.930259-12.72561q51.69779-65.218751 51.69779-104.190931 0-50.107089-65.218751-50.107089a110.15606 110.15606 0 0 0-31.814024 4.772104 27.212921 27.212921 0 0 0-7.158156 3.181403 34.100658 34.100658 0 0 1-7.158155 3.976753q-9.544207 2.386052-27.837272 5.567454a158.911053 158.911053 0 0 0-27.837271 5.567454 50.266159 50.266159 0 0 0 1.590701-16.702363v-6.362805q1.590701-0.795351 46.925686-10.339558 30.223323-5.567454 31.814025-23.065168v-1.590701q0 7.953506-5.567454-25.451219l-4.772104-28.632623a186.708557 186.708557 0 0 1-7.158156-20.679116l0.795351-4.772103q2.386052-9.544207 19.088415-19.088415 16.702363-10.339558 19.883765-21.474467a281.768863 281.768863 0 0 0-38.97218 12.72561 211.205356 211.205356 0 0 1-39.767531 11.134909q4.772104 2.386052-22.269817-32.609376a88.411175 88.411175 0 0 0-19.883766-2.386051q-49.311738 0-56.469893 54.083841a13.874892 13.874892 0 0 0 5.567454 5.567455 18.412367 18.412367 0 0 1 5.567454 4.772103q-8.748857 5.567454-44.539634 13.520961-29.427973 5.567454-37.381479 20.679116l-2.386052 8.748857a30.887441 30.887441 0 0 1-2.386052 9.544207q7.158156 4.772104 7.158156 23.065168l-0.795351 11.134909a55.773962 55.773962 0 0 0 2.386052 17.497713 224.610991 224.610991 0 0 0-62.832699 14.316311q-44.539635 15.111662-58.855945 18.293064a87.067032 87.067032 0 0 0 3.976753-17.497713 49.594088 49.594088 0 0 1 3.181402-15.111662 132.402017 132.402017 0 0 1 15.907012-19.883765 33.834215 33.834215 0 0 0 10.339558-23.065168 24.445101 24.445101 0 0 0-0.79535-7.158156q-7.953506-4.772104-19.883766-29.427972-10.339558-21.474467-22.269817-24.65587a11.278072 11.278072 0 0 0-4.772104-0.79535l-13.52096 1.590701a31.078325 31.078325 0 0 1-10.339558-2.386052 143.493181 143.493181 0 0 0-18.293064 11.930259 93.421883 93.421883 0 0 1-18.293064 11.93026q-2.386052 9.544207-16.702363 26.24657a48.094852 48.094852 0 0 0-13.520961 29.427973l49.311738 35.790778a224.125827 224.125827 0 0 0-4.772103 25.451219l-4.772104 26.246571q-12.72561 2.386052-72.376906 17.497713a652.815832 652.815832 0 0 1-73.967607 15.111662 35.393102 35.393102 0 0 1-11.134909 9.544207 16.702363 16.702363 0 0 0-9.544207 9.544208 11.067304 11.067304 0 0 0-0.795351 4.772103 46.166127 46.166127 0 0 0 2.386052 11.134909 57.20957 57.20957 0 0 1 1.590701 11.930259 20.897837 20.897837 0 0 1-0.795351 6.362805c0 1.069747-1.328236 1.590701-3.976753 1.590701a3.388194 3.388194 0 0 0-3.181402 3.181403l0.79535 3.976753a17.18355 17.18355 0 0 1-3.976753 8.748857 32.072514 32.072514 0 0 0-5.567454 9.544207v3.976753a149.744637 149.744637 0 0 0 3.181403 22.269818 148.833961 148.833961 0 0 1 3.181402 25.451219l-0.795351 14.316311q1.590701 13.52096 16.702363 27.041921 15.111662 12.72561 27.837272 12.72561h0.795351q11.930259 0 28.632622-16.702363a123.048694 123.048694 0 0 0 14.316311-15.907012 99.915921 99.915921 0 0 1 15.111662-15.111662q15.111662-11.930259 66.014101-20.679116-7.953506 33.404726-9.544208 96.237425-3.181402 82.716464-4.772103 101.009528-8.748857 0-26.246571-1.590701-18.293064-1.590701-26.24657-1.590701a72.901838 72.901838 0 0 0-12.72561 0.79535q53.288491 15.111662 49.311738 14.316311 9.544207 12.72561 12.72561 47.721037 3.181402 31.018674 13.520961 40.562882a33.360982 33.360982 0 0 0 24.655869 9.544207q30.223323 0 30.223323-26.24657a89.079269 89.079269 0 0 0-3.976753-21.474467 75.61796 75.61796 0 0 1-4.772104-20.679116v-1.590701a24.918335 24.918335 0 0 1 1.590702-7.158156 37.488851 37.488851 0 0 0 0.79535-7.158155q-0.795351-4.772104-3.181402-13.520961a103.073463 103.073463 0 0 1-3.976753-14.316311 531.178886 531.178886 0 0 1-3.181403-62.832698 744.193665 744.193665 0 0 1 12.72561-142.367761q18.293064-15.907012 59.651296-24.655869 41.358232 23.860518 46.925687 24.655869 70.786205 86.693217 62.832698 76.353659a32.012862 32.012862 0 0 0-3.976753-10.339558 71.907649 71.907649 0 0 1-4.772103-9.544207 100.289736 100.289736 0 0 1 15.111661 14.316311q9.544207 10.339558 17.497714 10.339558h0.79535z m119.302593-62.037348q-6.362805-11.930259-24.655869-11.930259a28.032132 28.032132 0 0 0-15.907013 4.772103 24.039472 24.039472 0 0 1-0.79535-7.158155q0-19.883765 23.065168-28.632622l21.474466-6.362805a96.774286 96.774286 0 0 0 19.883766-6.362805 78.70392 78.70392 0 0 0-6.362805-19.088415 49.005528 49.005528 0 0 1-4.772104-18.293064q0.795351-18.293064 31.814025-42.153583a6.323037 6.323037 0 0 0 0.79535-3.976753 4.056288 4.056288 0 0 1 1.590702-3.976753l11.930259-3.976753q-7.953506 0-90.66997 30.223323v-3.976753q0-15.907012 31.814024-28.632622 3.976753-10.339558 33.404726-24.655869a14.316311 14.316311 0 0 0-8.748857-2.386052q-11.930259 0-12.725609 7.953506l-11.93026-9.544207q6.362805-11.930259 32.609376-11.930259a9.055067 9.055067 0 0 0 3.181402-4.772104 6.565619 6.565619 0 0 1 2.386052-4.772104 97.828126 97.828126 0 0 1 35.790778-7.158155q42.153583 0 42.153582 31.018674a38.17683 38.17683 0 0 1-0.79535 8.748857q-7.158156 35.790778-51.69779 89.079269-57.265244 68.400153-62.832699 77.94436z m125.665397-245.763341q9.544207-7.158156 19.883766-40.562881-8.748857-16.702363-14.316311-49.311738 14.316311-14.316311 15.907012-19.088415h-7.158156a62.037348 62.037348 0 0 0-27.837271 7.158156 34.888055 34.888055 0 0 0-18.293064-4.772104q-31.018674 0-32.609376 23.860518 0-3.181402 11.134909 32.609376 16.702363 50.902439 45.334985 50.902439z m-300.642533 98.623477a51.121161 51.121161 0 0 0-23.065168-5.567454q-2.386052 0-28.632622 4.772103 2.386052-22.269817 58.855946-60.446647 2.386052 2.386052 7.953506 18.293065a37.858689 37.858689 0 0 0 23.860519 8.748856q11.134909 0 51.69779-24.655869a55.769985 55.769985 0 0 1 1.590701 13.520961 38.17683 38.17683 0 0 1-2.386052 13.52096z m97.032776 248.149392a52.572676 52.572676 0 0 1 11.134908 15.111662q3.976753-3.976753 15.907012-18.293064a107.272914 107.272914 0 0 1 18.293065-17.497714 9.723161 9.723161 0 0 0 5.567454 1.590701q-3.976753 0 10.339558-2.386051 7.158156 3.181402 7.158156 16.702363a52.890816 52.890816 0 0 1-2.386052 16.702363q-98.623476 13.52096-120.097943 18.293064a7.687064 7.687064 0 0 0-3.976753 3.181402 8.593763 8.593763 0 0 1-3.181403 3.976753 51.07344 51.07344 0 0 1-11.930259-3.976753l-11.930259-3.181402q9.544207-11.930259 33.404725-21.474467a313.650492 313.650492 0 0 0 38.17683-15.907012c2.111656 4.251149 3.181402 5.567454 3.181403 3.976753a2.310494 2.310494 0 0 0-0.795351 1.590701 129.475127 129.475127 0 0 1 15.111662-7.158156l0.79535 0.795351a7.436528 7.436528 0 0 1-2.386052 3.181403 6.529829 6.529829 0 0 0-2.386051 3.976753v0.79535z m-55.674544 158.274773a221.139285 221.139285 0 0 1-22.269817 0.795351 490.274004 490.274004 0 0 1-72.376906-5.567455l68.400153-39.767531a160.660825 160.660825 0 0 1 13.520961 22.269818 221.652287 221.652287 0 0 0 12.725609 22.269817z m33.404726-247.354042q-14.316311 3.976753-23.065168 5.567455a32.3827 32.3827 0 0 1-2.386051-11.134909q0-23.065168 37.381479-23.065168h3.181402l3.181402 11.930259c1.590701 0 2.386052-1.316305 2.386052-3.976753a10.872443 10.872443 0 0 1 1.590702 7.158156 10.737233 10.737233 0 0 0 1.590701 7.158155z m15.111662-105.781632q-50.107089 16.702363-51.69779 16.702363 5.567454-12.72561 50.107089-39.767531 1.590701 3.181402 1.590701 19.088415v3.976753z m206.79116 176.567837q-3.181402 8.748857-19.883765 10.339558l-27.837272 3.181403-8.748857-23.065168z m816.029733 87.488568q-24.655869-20.679116-63.62805-112.144437c0-1.05384-0.795351-1.590701-2.386051-1.590701-2.123586 0-3.181402-0.258489-3.181403-0.795351v-0.79535h4.772104l-7.158156-10.339559a37.44113 37.44113 0 0 1-6.362805-11.930259 4.525545 4.525545 0 0 0 3.181403 1.590701c0.520955 0 0.795351-0.520955 0.79535-1.590701v-0.79535a84.454305 84.454305 0 0 1-5.567454-23.065168 74.472655 74.472655 0 0 0-6.362805-23.860519v7.158156a9.214137 9.214137 0 0 1-1.590701 6.362805 104.055721 104.055721 0 0 0-8.748857-32.609376 210.242982 210.242982 0 0 1-12.72561-31.814024l-0.79535-3.181403 0.79535-4.772103a9.997557 9.997557 0 0 0-4.772103-8.748857l-0.795351 4.772104a59.734808 59.734808 0 0 0 3.181402 16.702363q3.976753 11.930259 4.772104 15.907012l-2.386052 11.930259a21.808514 21.808514 0 0 0 3.976753 4.772104 12.196702 12.196702 0 0 1 3.976753 3.976753v0.79535a2.246865 2.246865 0 0 1-1.590701 1.590702 1.403794 1.403794 0 0 0-1.590701 1.590701v0.795351a32.513933 32.513933 0 0 1 12.72561 24.655869v3.976753q-25.45122-31.814025-41.358232-108.167684a13.63231 13.63231 0 0 0 6.362805-2.386052 9.587952 9.587952 0 0 1 4.772103-2.386052h1.590702q1.590701 16.702363 7.158155 19.088415 1.590701-3.181402 1.590701-20.679116v-3.976753l23.860519-6.362805q13.52096-15.907012 58.060595-40.562881 1.590701-8.748857 12.72561-20.679116 10.339558-11.134909 11.134908-20.679117 0-10.339558-9.544207-23.860518-15.111662-19.088415-69.195504-19.088415l-17.497713 0.795351q-7.953506 0.795351-138.391007 27.837271v-5.567454q0-40.562881 37.381478-64.4234a61.922022 61.922022 0 0 0 4.772104-23.065168 46.452453 46.452453 0 0 0-20.679116-40.562881 83.595327 83.595327 0 0 0-15.111662-7.158156 77.459197 77.459197 0 0 1-15.907012-7.158155 45.334985 45.334985 0 0 1-6.362805-5.567455 15.907012 15.907012 0 0 0-5.567454-3.976753q-8.748857-3.181402-38.97218-3.181402a93.716163 93.716163 0 0 1-14.316311-0.795351q-54.879193 51.69779-54.879193 60.446647a16.801782 16.801782 0 0 0 7.953506 14.316311 7.742738 7.742738 0 0 0-1.590701 5.567455 26.942502 26.942502 0 0 1-1.590701 6.362804q16.702363 8.748857 26.24657 38.972181 2.386052 6.362805 7.953506 27.041921a145.899117 145.899117 0 0 0 7.953506 25.451219q-30.223323 27.041921-108.167683 46.925687-3.181402-9.544207-4.772104-41.358232-1.590701-27.837272-8.748857-38.972181-3.976753-7.158156-25.45122-26.24657-28.632622-24.655869-49.311738-24.655869-19.088415 0-44.539634 20.679116-73.967607 27.041921-73.967608 105.781632v4.772104a2.223005 2.223005 0 0 0 1.590702 1.590701 2.565006 2.565006 0 0 1 1.590701 2.386052l-1.590701 5.567454a36.275942 36.275942 0 0 0 3.181402 11.134909 37.695642 37.695642 0 0 0-0.795351 8.748857q0 10.339558 18.293065 41.358232a55.161542 55.161542 0 0 1 11.134908 5.567454 66.769684 66.769684 0 0 0 11.134909 6.362805q46.130336 19.883765 45.334985 18.293064a12.244423 12.244423 0 0 1 2.386052 6.362805l2.386052 7.158155 9.544207 12.72561a64.821075 64.821075 0 0 1 9.544207 12.72561q17.497714 25.45122 46.130336 90.66997l-2.386052-15.907012a4.60508 4.60508 0 0 1 0.795351-3.181402 111.170132 111.170132 0 0 0 11.930259 26.24657q0 3.181402-4.772103-19.883765a10.045278 10.045278 0 0 1 3.181402 5.567454 5.567454 5.567454 0 0 0 3.181402 4.772104l-0.79535-7.158156a33.611517 33.611517 0 0 1-1.590701-8.748857 8.60967 8.60967 0 0 1 2.386051-6.362805 20.428581 20.428581 0 0 1 3.976754 9.544208 16.43592 16.43592 0 0 0 3.181402 9.544207l-1.590701-10.339558a4.573266 4.573266 0 0 1 1.590701-3.181402q1.590701 11.930259 4.772104 13.52096a23.900286 23.900286 0 0 0-0.795351-5.567454 17.847668 17.847668 0 0 1-1.590701-5.567454 4.60508 4.60508 0 0 1 0.79535-3.181403c0 4.251149 1.057816 6.362805 3.181403 6.362805a0.703885 0.703885 0 0 0 0.795351-0.795351 38.451226 38.451226 0 0 1-4.772104-16.702363q61.241997-40.562881 101.804879-42.153582v14.316311q41.358232 10.339558 50.902439 22.269817a30.756208 30.756208 0 0 1-21.474466 7.953506 93.199185 93.199185 0 0 1-27.837272-6.362805 101.128831 101.128831 0 0 0-27.837272-6.362805 27.996342 27.996342 0 0 0-21.474466 9.544208q0.795351 17.497714 19.088415 21.474466 29.427973 7.158156 30.223323 7.953507a487.764673 487.764673 0 0 1-43.744284 32.609375 43.255143 43.255143 0 0 0-27.837271-9.544208 81.420043 81.420043 0 0 0-48.516388 16.702363q-23.860518 18.293064-23.860519 38.972181a34.911915 34.911915 0 0 0 4.772104 16.702363 534.921011 534.921011 0 0 0-54.879192 31.814024 304.989124 304.989124 0 0 1-57.265245 30.223324 51.029696 51.029696 0 0 1-3.181402-15.111662q0-25.45122 22.269817-58.855946l19.883765-27.837271q11.930259-16.702363 17.497714-25.45122-78.739711 85.102516-78.739711 147.139864a24.711544 24.711544 0 0 0 6.362805 18.293064h7.158155q15.111662 0 54.083842-27.041921h2.386052a33.43654 33.43654 0 0 0 23.860519-11.134908 135.348791 135.348791 0 0 1 17.497713-15.111662l3.976753-0.795351a4.577243 4.577243 0 0 0 3.181403-0.79535q2.386052-1.590701 15.111661-12.72561a40.861138 40.861138 0 0 1 18.293065-9.544208l13.52096 7.158156q-158.274773 90.66997-169.409681 93.056022a30.513626 30.513626 0 0 0 0.79535 10.339558q42.153583-11.134909 92.260672-46.130336 64.4234-44.539635 84.307165-54.083842 5.567454 7.953506 22.269818 11.93026a113.444835 113.444835 0 0 1 24.655869 8.748856q10.339558 7.158156 27.837271 35.790778 11.930259 19.088415 23.860519 40.562882v-1.590702a23.816774 23.816774 0 0 0-0.795351-5.567454l-0.79535-4.772104a3.181402 3.181402 0 0 1 1.590701-3.181402 25.892639 25.892639 0 0 1 4.772103 7.953506 26.000012 26.000012 0 0 0 3.976754 7.953506v-3.976753q0-24.655869 2.386051-29.427973h3.181403a94.018396 94.018396 0 0 0 25.45122-4.772103 109.36071 109.36071 0 0 1 22.269817-3.976753 25.29215 25.29215 0 0 1 12.72561 3.181402l19.088414 43.744284q35.790778 12.72561 32.609376 12.72561a24.305915 24.305915 0 0 0 7.158155-0.795351q8.748857-3.181402 19.088415-33.404726 16.702363-45.334985 78.739711-104.986281 97.032775 77.14901 133.618904 77.14901 7.953506 0 17.497713-15.111662 8.748857-13.52096 8.748857-17.497714 0-10.339558-36.586128-69.990854v11.134909z m-73.172257-23.065168q-23.860518-0.795351-45.334985-20.679116-25.45122-23.065168-38.97218-27.041921-0.795351-5.567454-15.111662-18.293064l-25.45122-2.386052a20.734791 20.734791 0 0 0-8.748857 4.772104 13.345983 13.345983 0 0 1-7.158155 4.772103l-5.567454 0.795351q-11.930259 0-32.609376-9.544207-23.065168-11.134909-31.018674-11.93026l-0.79535-1.590701q0-2.386052 12.725609-12.72561 90.66997-90.66997 103.395581-110.553735a139.953871 139.953871 0 0 1-6.362805-20.679116l15.907012-7.158156a55.101891 55.101891 0 0 0 15.111662-7.953506q9.544207 39.767531 34.995427 120.097943 24.655869 76.353659 34.995427 120.097943z m-74.762958-338.024012l2.386052-0.795351a2.966658 2.966658 0 0 1 1.590701 2.386052 6.323037 6.323037 0 0 0 0.795351-3.976753l-0.795351-10.339558a4.219335 4.219335 0 0 1 4.772104-4.772104c1.057816 0 1.590701 0.795351 1.590701 2.386052l-0.795351 3.976753c0 2.127563 0.520955 3.181402 1.590702 3.181403a25.053544 25.053544 0 0 0 1.590701-5.567454 10.840629 10.840629 0 0 1 2.386052-5.567455 219.997957 219.997957 0 0 1 50.107089-6.362805q34.995427 0 46.925686 15.907013-1.590701 3.976753-75.558309 70.786204a15.390034 15.390034 0 0 1-2.386051-10.339558c-1.069747 0-1.590701 2.660448-1.590702 7.953507v1.590701a9.146532 9.146532 0 0 1-1.590701-6.362805 25.594383 25.594383 0 0 0-1.590701-5.567454q-1.590701 1.590701-1.590701 18.293064v3.976753q-13.52096 7.953506-11.93026 6.362805a105.900935 105.900935 0 0 1-2.386051-22.269817l1.590701-34.995428a72.806395 72.806395 0 0 0-3.976753-27.041921 333.275769 333.275769 0 0 0-3.181403 42.153583q-1.590701 30.223323-3.181402 42.153583a24.234333 24.234333 0 0 1-2.386052-7.158156 4.573266 4.573266 0 0 0-1.590701 3.181403l1.590701 11.134908a246.956366 246.956366 0 0 0-33.404726 21.474467q-10.339558-1.590701-27.041921-17.497714-17.497714-16.702363-27.837272-18.293064a24.445101 24.445101 0 0 0-7.158155-0.79535q-12.72561 0-31.814025 22.269817a11.278072 11.278072 0 0 0-4.772103-0.795351 8.641484 8.641484 0 0 0-9.544208 7.158156 100.802737 100.802737 0 0 0-28.632622-15.907012q97.032775-46.130336 159.865474-68.400153l-5.567454-0.795351a100.166457 100.166457 0 0 0-17.497714 2.386052 113.735138 113.735138 0 0 1-18.293064 2.386052 24.464985 24.464985 0 0 1-10.339558-1.590702l-37.381479 14.316311a39.687996 39.687996 0 0 0-12.72561-4.772103 24.178659 24.178659 0 0 1-12.72561-4.772104 3.213216 3.213216 0 0 1 3.976753-3.181402 15.907012 15.907012 0 0 1 7.158156 1.590701q63.628049-33.404726 111.349086-34.200077v15.111662z m-90.66997 324.503052q-40.562881 76.353659-43.744284 78.739711-17.497714 10.339558-56.469894 11.930259v-3.976753a280.961582 280.961582 0 0 0-6.362805-34.995427q28.632622-34.200077 106.576983-51.69779z m-167.81898-130.437502a114.614001 114.614001 0 0 0-24.655869 19.088415 180.071356 180.071356 0 0 1-22.269818 19.088415 11.437142 11.437142 0 0 1-3.976753-9.544207l3.976753-18.293065 2.386052-21.474466q16.702363-50.107089 108.963035-86.693217-2.386052 11.134909-17.497714 24.655869-15.907012 15.111662-19.883765 23.860518a28.851344 28.851344 0 0 0-2.386052 8.748857l-2.386052 8.748857a89.329804 89.329804 0 0 1-12.72561 14.316311 32.096374 32.096374 0 0 0-9.544207 17.497713z m147.935214 103.395581q-18.293064 4.772104-56.469893 17.497713-46.925686 13.52096-49.311739 13.520961h-5.567454q1.590701-11.134909 28.632622-31.018674 26.24657-19.088415 23.065168-18.293065a44.328867 44.328867 0 0 1 8.748857-1.590701 62.482744 62.482744 0 0 1 26.24657 7.953506 171.398058 171.398058 0 0 0 24.655869 11.93026z m139.981709-290.302975a27.896923 27.896923 0 0 0 1.590701-8.748857 58.092409 58.092409 0 0 0-3.181402-18.293064l-0.795351 14.316311a28.632622 28.632622 0 0 0 2.386052 12.72561z m-27.041921 25.451219a25.797197 25.797197 0 0 0-3.181403-11.134908v2.386052a34.788636 34.788636 0 0 0 0.795351 11.134908z" fill="#040302" p-id="11664"></path></svg>
+                        </a>
+
+                        <a class="mx-2" href="https://domain.bf" aria-label="domain" target="_blank">
+<svg t="1695262486221" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="29472" width="64" height="64"><path d="M807.744 282.176a96 96 0 0 1 179.712 67.008l-3.2 8.64-192.064 448c-32 74.688-135.232 77.44-172.48 8.32l-4.032-8.32-191.936-448a96 96 0 0 1 172.48-83.968l4.032 8.32 103.68 242.112 103.808-242.112z" fill="#BACDFD" p-id="29473"></path><path d="M423.744 282.176A96 96 0 0 1 603.52 349.184l-3.2 8.64-192.064 448c-32 74.688-135.232 77.44-172.48 8.32l-4.032-8.32-191.936-448a96 96 0 0 1 172.48-83.968l4.032 8.32 103.68 242.112 103.808-242.112z" fill="#1959FA" p-id="29474"></path></svg>
+                        </a>
+
+                        <a class="mx-2" href="https://hi.rw/" aria-label="url" target="_blank">
+                            <svg t="1695262711538" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32769" width="48" height="48"><path d="M482.2 375l15.2-115" fill="#F7B538" p-id="32770"></path><path d="M514.9 399.3h-24.2v90.5H512c12.3 0 21.8-3.6 28.4-10.8 6.6-7.2 9.9-19.3 9.9-36.2 0.1-29-11.7-43.5-35.4-43.5z m-2.5-335.8c-247.6 0-448.3 200.7-448.3 448.3S264.8 960 512.4 960s448.3-200.7 448.3-448.3S760 63.5 512.4 63.5z m0 841.3c-217.1 0-393.1-176-393.1-393.1s176-393.1 393.1-393.1 393.1 176 393.1 393.1-176 393.1-393.1 393.1z m0-736.1c-189.5 0-343.1 153.6-343.1 343.1s153.6 343.1 343.1 343.1 343.1-153.6 343.1-343.1-153.6-343.1-343.1-343.1zM407.3 571.4c0 19.9-2.2 36.4-6.7 49.4s-10.5 23.3-18.1 30.9c-7.1 7.3-16.1 12.6-25.9 15.4-9.8 2.7-20 4-30.2 4-10.4 0-20.5-1.2-30.2-3.5-9.8-2.4-18.7-7.3-25.9-14.3-7.6-7.2-13.6-17.4-18.1-30.5-4.5-13.2-6.7-30.3-6.7-51.4V352.7h51.1v218.7c0 7.9 0.4 15.2 1.3 21.8 0.8 6.6 2.4 12.3 4.6 17.1 2.2 4.8 5.3 8.6 9.2 11.4 4.3 2.9 9.5 4.4 14.7 4.2 6.1 0 11.1-1.4 14.9-4.2 3.8-2.8 6.8-6.6 9.1-11.5 2.4-5.4 4-11.2 4.6-17.1 0.9-7.2 1.3-14.5 1.3-21.8V352.7h51.1v218.7z m204.2 94.9h-55.4c-2.7-4.7-4.4-9.8-5-15.2-0.7-5.9-1.2-11.8-1.4-17.8l-1.4-60.2c-0.5-12.3-2.9-21.9-7.5-29-4.5-7-12.1-10.5-22.7-10.5h-27.3v132.6h-51.1V352.7h94.5c21.3 0 37.9 6.7 49.7 20 11.8 13.3 17.7 33.6 17.7 60.8 0 21.1-3.4 38.3-10.3 51.6-6.9 13.3-17.5 21.9-32 25.7v0.9c12.8 2.3 22.1 7.5 28 15.4 5.9 7.9 9.6 20.6 11 38.2 0.5 5.9 0.8 12.2 1.1 19.1 0.3 6.9 0.5 14.6 0.7 23.1 0.5 16.7 1.2 29.4 2.1 38.2 1.4 8.8 4.5 14.8 9.2 18v2.6z m25.6 0V352.7h51.1v261.7h90.5v51.8H637.1z" fill="#040000" p-id="32771"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-8 hidden lg:block lg:mt-0 lg:w-1/2">
+                    <div class="flex items-center justify-center lg:justify-end">
+                        <div class="max-w-lg">
+                            <img class="object-cover object-center w-full h-64" src="assets/dog.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-gray-800">
+        <div class="container px-6 pb-8 mx-auto">
+<hr class="mb-8 border-gray-700">
+            <div class="flex flex-col items-center sm:flex-row sm:justify-between">
+            <p class="text-sm text-gray-400">© Copyright 2023.不讲李 All Rights Reserved.</p>
+
+            <div class="flex mt-3 -mx-2 sm:mt-0">
+                <a href="https://0.sd/liuyan" class="mx-2 text-sm text-gray-400 hover:text-gray-300" aria-label="about" target="_blank"> 我要投稿新网站 </a>
+
+                <a href="https://0.sd" class="mx-2 text-sm text-gray-400 hover:text-gray-300" aria-label="blog" target="_blank"> 在线持证求打赏 </a>
+
+            </div>
+            </div>
+        </div>
+</footer>
+<!-- alpinejs -->
+<!-- <script src="https://cdn.staticfile.org/alpinejs/3.9.6/cdn.min.js" defer></script> -->
+<script src="assets/alpine.js" defer></script>
+</body>
+</html>
