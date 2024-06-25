@@ -1,0 +1,61 @@
+ 
+    html {
+      font-size: 13.3333vw;
+      --domain-len: 7;
+    }
+    html,body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #f6f6f6;
+      font-family: 'MiSans';
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    h1 {
+      margin: 0;
+      font-family: "FatFrank";
+      font-size: calc( 50vw / var(--domain-len) );
+      color: #151b2a;
+    }
+    h1:first-letter {
+      text-transform: uppercase;
+    }
+    p {
+      margin: .3em;
+      font-size: .20rem;
+      text-align: center;
+      letter-spacing: 2px;
+      color: #34373c;
+      text-transform: uppercase;
+    }
+    sup, a {
+      background-image: linear-gradient(-45deg,#0015ff,#f546f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    a {
+      font-size: .20rem;
+    }
+    a:hover {
+      text-decoration: none;
+      background-image: linear-gradient(-45deg,#f546f9,#0015ff);
+    }
+    sup {
+      font-weight: 700;
+      font-family: 'MiSans';
+      font-size: .5em;
+      display: inline-block;
+      line-height: 1;
+    }
+    @media screen and (min-width:750px) {
+      html {
+        font-size: 100px;
+      }
+    }
