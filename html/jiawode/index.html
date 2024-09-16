@@ -1,0 +1,151 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,viewport-fit=cover">
+    <title>加我的专属链</title>
+    <meta name="description" content="加我的专属链">
+    <meta name="keyword" content="加我的专属链">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+	<link rel="Bookmark" type="image/png" href="/assets/favicon.png" />
+	<link rel="apple-touch-icon" type="image/png" href="/assets/favicon.png" />
+	
+
+	
+	
+	
+	
+	
+<link href="https://fonts.loli.net/css2?family=Inter:wght@300;500;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style type="text/css">
+       
+ *{
+border: none;
+color: #000;
+}
+body { 
+          
+background-size: cover;
+  
+  margin: 0;  
+  padding: 0;  
+  height: 100vh; /* 使body高度与视口高度相同 */  
+  display: flex;  
+  justify-content: center; /* 水平居中 */  
+  align-items: center; /* 垂直居中 */  
+  overflow: hidden; /* 防止内容溢出导致背景显示不全 */  
+  font-family: "alimama";
+           
+            align-items: center;
+            justify-content: center;
+          
+            font-size: 66px;
+            text-align: center;
+        }
+        body div{
+            padding: 1rem;
+            line-height: 1.5rem;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+
+        pre {font-size:5pt;
+             letter-spacing:0.2px;
+             line-height:5pt;
+             font-weight:bold;
+             font-family: "alimama";
+        }
+       .container {
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    text-align: center; /* 使得文本在div内居中对齐 */
+    width: 100%; /* 容器宽度设为100% */
+}
+
+.left, .right {
+    flex: 1; /* 两个div各占一半宽度 */
+    padding: 10px; /* 内边距 */
+    /*border: 1px solid #000;  边框 */
+    box-sizing: border-box; /* 边框计算在宽度内 */
+}
+
+.left {
+    text-align: right; /* 文本靠右对齐 */
+}
+
+.right {
+    text-align: left; /* 文本靠左对齐 */
+}
+ 
+
+        
+    </style>
+   
+</head>
+<body>
+<div class="bouncing-blobs-container">
+<div class="bouncing-blobs-glass"></div>
+<div class="bouncing-blobs">
+<div class="bouncing-blob bouncing-blob--pink"></div>
+<div class="bouncing-blob bouncing-blob--blue"></div>
+<div class="bouncing-blob bouncing-blob--blue"></div>
+<div class="bouncing-blob bouncing-blob--pink"></div>
+<div class="bouncing-blob bouncing-blob--blue"></div>
+<div class="bouncing-blob bouncing-blob--white"></div>
+<div class="bouncing-blob bouncing-blob--purple"></div>
+<div class="bouncing-blob bouncing-blob--purple"></div>
+<div class="bouncing-blob bouncing-blob--pink"></div>
+</div>
+</div>
+<div class="container">
+<div class="left">加我的</div>
+<div class="right"><span id="random-link-container"></span> </div>
+</div>
+<script  src="assets/jiawodebg.js"></script>
+</head>  
+<body>  
+  
+<!-- 固定的文字容器 -->  
+
+  
+<script>  
+// 预设的链接和描述  
+const links = [  
+     { url: 'qun.html', text: '扣扣群' },
+    { url: 'xhs.html', text: '小红书' },  
+    { url: 'weixin.html', text: '微信' },  
+    { url: 'qq.html', text: '扣扣' },  
+    { url: 'zhihu.html', text: '知乎' }, 
+    { url: 'whatsapp.html', text: 'WhatsApp' }, 
+    // ... 可以继续添加更多  
+];  
+  
+// 生成随机链接的函数  
+function generateRandomLink() {  
+    const randomIndex = Math.floor(Math.random() * links.length);  
+    const link = links[randomIndex];  
+      
+    // 将随机链接插入到HTML中的指定位置  
+    document.getElementById('random-link-container').innerHTML = `<a href="${link.url}" target="_blank">${link.text}</a>`;  
+}  
+  
+// 页面加载时生成一个随机链接，并设置时间间隔自动切换  
+generateRandomLink();  
+const intervalTime = 3000; // 5秒 = 5000毫秒  
+setInterval(generateRandomLink, intervalTime);  
+</script>
+</html>
