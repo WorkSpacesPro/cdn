@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>办客 - 𝑩𝒂𝒏.𝒌𝒆</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        body, html {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel {
+            color: #333;
+            font-weight: normal;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .description {
+            text-align: center;
+            font-size: 1em;
+            font-weight: 500;
+            margin: 1rem 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 300px; /* 可根据需要调整最大宽度 */
+            padding: 0 1rem;
+        }
+        .container img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div class="container">
+            <!-- 这里可以放置你的图片，例如： -->
+            <img src="img/banke.png" alt="ban.ke" class="img-fluid" />
+            <div class="description">𝑩𝒂𝒏.𝒌𝒆 | 办客金融</div>
+        </div>
+    </div>
+</body>
+</html>
