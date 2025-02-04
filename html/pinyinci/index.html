@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f2f3fb" />
+  <title>Pinyin.ci-拼音词</title>
+  <meta name="description" content="Pinyin.ci-拼音词">
+ 
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="bookmark" href="assets/favicon.ico">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link href="assets/woff.css" rel="stylesheet" />
+  <link href="assets/style.css" rel="stylesheet" />
+  <!-- Unpkg for card scroll reveal effect -->
+  <script src="assets/scrollreveal.js"></script>
+
+
+</head>
+
+<body>
+    
+  <!-- 修改二维码按钮的位置 -->
+  <div style="position: fixed; right: 20px; top: 85px; z-index: 100;">
+    <div class="theme-btn">
+      <i class="fas fa-sun"></i>
+    </div>
+  </div>
+
+  <!-- 修改分享按钮和菜单的位置 -->
+  <div style="position: fixed; right: 20px; top: 20px; z-index: 100;">
+    <div class="share-btn">
+      <i class="fas fa-share-alt"></i>
+    </div>
+    <div class="share-menu">
+      <a href="" onclick="shareToWeixin()"><i class="fab fa-weixin"></i> 微信</a>
+      <a href="#" onclick="shareToWeibo()"><i class="fab fa-weibo"></i> 微博</a>
+      <a href="#" onclick="shareToQQ()"><i class="fab fa-qq"></i> QQ</a>
+      <a href="#" onclick="copyLink()"><i class="fas fa-link"></i> 复制链接</a>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="container">
+      <!----个人照片和姓名---->
+      <div class="profile-section">
+        <div class="picture">
+          <img src="https://q.qlogo.cn/headimg_dl?dst_uin=872066666&spec=640" alt="Logo" />
+        </div>
+      </div>
+
+      <!--On loading name effect-->
+      <div class="name" translate="no">
+        <span><span>𝒑𝒊𝒏𝒚𝒊𝒏.𝒄𝒊</span></span>
+        <span><span>♥️</span></span>
+        <span><span>拼音词</span></span>
+      </div>
+
+      <!-- 添加二维码区域 -->
+      <div class="qr-code-section">
+        <div class="qr-code-container">
+          <img src="assets/evm.png" alt="网站二维码">
+          <div class="qr-text">
+            <p>扫一扫</p>
+            <p>在手机上打开</p>
+          </div>
+        </div>
+      </div>
+
+      <!----个人简介---->
+      <div class="info-box">
+        什么是拼音词
+        <div class="toggle" onclick="vibrate()">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <!--详细信息-->
+        <div>
+          <br />
+          <div class="details">
+            <ul>
+              <li class="about">
+                拼音词是由汉语拼音字母组成的词语形式，是汉语学习过程中的重要内容。它通过拼音的组合来表示汉语中的词汇，有助于学习者准确发音、识字以及语言的学习与交流。例如“ba.ba（爸爸）”“ma.ma（妈妈）”等都是常见的拼音词
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 社交媒体按钮 -->
+      <div class="social-media">
+        <a href="https://zhui.fan/" target="_blank">
+          <div>Zhui.fan追番</div>
+        </a>
+        <a href="https://dao.re/" target="_blank">
+          <div>Dao.re导热</div>
+        </a>
+
+        <a href="https://kaifu.la" target="_blank">
+          <div>Kaifu.la凯夫拉</div>
+        </a>
+        <a href="https://bukai.vip" target="_blank">
+          <div>Bukai.vip不开VIP</div>
+        </a>
+
+        <a href="https://wqkk.com" target="_blank">
+          <div>Wqkk.com我去看看</div>
+        </a>
+        <a href="https://youyi.si" target="_blank">
+          <div>Youyi.si有意思</div>
+        </a>
+        <a href="https://meiyi.si" target="_blank">
+          <div>Meiyi.si没意思</div>
+        </a>
+        <a href="https://moyu.my" target="_blank">
+          <div>Moyu.my摸鱼</div>
+        </a>
+        <a href="https://naisi.cm" target="_blank">
+          <div>Naisi.cm奈斯传媒</div>
+        </a>
+        <a href="https://wenan.gs" target="_blank">
+          <div>Wenan.gs文案高手</div>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 添加底部版权信息 -->
+  <footer class="footer">
+    <span>Copyright © 2023 - 2025</span>
+    <span class="separator">|</span>
+    <a href="https://youyi.si" target="_blank">有意思</a>
+    <span class="separator">|</span>
+    <a href="https://icp.gs/" target="_blank">岸号66666666号-1</a>
+  </footer>
+
+
+  <script src="assets/script.js"></script>
+
+
+
+  <!-- 添加搜索和分享功能的 JavaScript -->
+  <script>
+  
+    // 分享功能
+    const shareBtn = document.querySelector(".share-btn");
+    const shareMenu = document.querySelector(".share-menu");
+
+    shareBtn.addEventListener("click", () => {
+      shareMenu.classList.toggle("active");
+    });
+
+    // 点击其他地方关闭分享菜单
+    document.addEventListener("click", (e) => {
+      if (!shareBtn.contains(e.target) && !shareMenu.contains(e.target)) {
+        shareMenu.classList.remove("active");
+      }
+    });
+
+    // 分享功能实现
+    function shareToWeixin() {
+      alert("请截图分享到微信");
+    }
+
+    function shareToWeibo() {
+      const text = encodeURIComponent(document.title);
+      const url = encodeURIComponent(window.location.href);
+      window.open(`http://service.weibo.com/share/share.php?title=${text}&url=${url}`);
+    }
+
+    function shareToQQ() {
+      const text = encodeURIComponent(document.title);
+      const url = encodeURIComponent(window.location.href);
+      window.open(`http://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${text}`);
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert("链接已复制到剪贴板"))
+        .catch(err => console.error('复制失败:', err));
+    }
+
+    // 二维码按钮交互
+    const qrBtn = document.querySelector('.qr-btn');
+    const qrBox = document.querySelector('.qr-box');
+
+    qrBtn.addEventListener('mouseenter', () => {
+      qrBox.style.opacity = '1';
+      qrBox.style.visibility = 'visible';
+      qrBox.style.transform = 'translateY(0)';
+    });
+
+    qrBtn.addEventListener('mouseleave', () => {
+      qrBox.style.opacity = '0';
+      qrBox.style.visibility = 'hidden';
+      qrBox.style.transform = 'translateY(10px)';
+    });
+  </script>
+
+  <!-- 在body标签结束前添加暗黑模式切换的JavaScript代码 -->
+  <script>
+    // 暗黑模式切换功能
+    const themeBtn = document.querySelector('.theme-btn');
+    const themeIcon = themeBtn.querySelector('i');
+
+    // 检查本地存储中的主题设置
+    if (localStorage.getItem('dark-mode') === 'true') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('dark-mode', 'true');
+      } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('dark-mode', 'false');
+      }
+    });
+  </script>
+  
+</body>
+
+</html>
