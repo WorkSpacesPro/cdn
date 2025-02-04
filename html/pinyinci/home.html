@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f2f3fb" />
+  <title>Archive.vip</title>
+  <meta name="description" content="archive.vip">
+ 
+  <link rel="shortcut icon" type="image/x-icon" href="assets/assets/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="bookmark" href="assets/favicon.ico">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link href="assets/woff.css" rel="stylesheet" />
+  <link href="assets/style.css" rel="stylesheet" />
+  <!-- Unpkg for card scroll reveal effect -->
+  <script src="assets/scrollreveal.js"></script>
+
+
+</head>
+
+<body>
+    
+  <!-- 修改二维码按钮的位置 -->
+  <div style="position: fixed; right: 20px; top: 85px; z-index: 100;">
+    <div class="theme-btn">
+      <i class="fas fa-sun"></i>
+    </div>
+  </div>
+
+  <!-- 修改分享按钮和菜单的位置 -->
+  <div style="position: fixed; right: 20px; top: 20px; z-index: 100;">
+    <div class="share-btn">
+      <i class="fas fa-share-alt"></i>
+    </div>
+    <div class="share-menu">
+      <!-- 
+      <a href="" onclick="shareToWeixin()"><i class="fab fa-weixin"></i> 微信</a>
+      <a href="#" onclick="shareToWeibo()"><i class="fab fa-weibo"></i> 微博</a>
+      <a href="#" onclick="shareToQQ()"><i class="fab fa-qq"></i> QQ</a>
+       -->
+      <a href="#" onclick="copyLink()"><i class="fas fa-link"></i> 复制链接</a>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="container">
+
+      <!----个人照片和姓名---->
+      <div class="profile-section">
+        <div class="picture">
+          <img src="https://yxw.me/img/clock.svg" alt="Logo" />
+        </div>
+      </div>
+
+      <!--On loading name effect-->
+      <div class="name" translate="no">
+        <span><span>Archive.vip</span></span>
+        <span><span>😂</span></span>
+        <span><span>档案</span></span>
+      </div>
+
+      <!-- 添加二维码区域 -->
+      <div class="qr-code-section">
+        <div class="qr-code-container">
+          <img src="assets/evm.png" alt="网站二维码">
+          <div class="qr-text">
+            <p>扫一扫</p>
+            <p>在手机上打开</p>
+          </div>
+        </div>
+      </div>
+
+      <!----info-box---->
+<!----info-box---->
+<div class="info-box">
+  关于
+  <div class="toggle" onclick="vibrate()">
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+  <!--详细信息-->
+  <div>
+    <br />
+    <div class="details">
+      <ul>
+        <li class="about">
+          本站是记录域名链接临时使用的,来自pinyin.ci
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br />
+
+           <!----Com---->
+           <div class="info-box"> Com </div>
+      <!-- 社交媒体按钮 -->
+      <div class="social-media">
+
+        <a href="https://qcyw.com" target="_blank">
+          <div>qcy.Com 七彩云</div>
+        </a>
+        <a href="https://xiaozahuo.com" target="_blank">
+          <div>xiaozahuo.Com小杂货</div>
+        </a>
+
+        <a href="https://xspw.com" target="_blank">
+          <div>xspw.Com 小视频,小饰品,小商品,小算盘</div>
+        </a>
+      </div>
+
+<!----World---->
+<div class="info-box">
+  World  
+</div>
+
+        <!-- 社交媒体按钮 -->
+      <div class="social-media">
+
+        <a href="https://126.world" target="_blank"><div>126.world</div></a>
+        <a href="https://178.world" target="_blank"><div>178.world</div></a>
+        <a href="https://188.world" target="_blank"><div>188.world</div></a>
+        <a href="https://198.world" target="_blank"><div>198.world</div></a>
+        <a href="https://258.world" target="_blank"><div>258.world</div></a>
+        <a href="https://345.world" target="_blank"><div>345.world</div></a>
+        <a href="https://456.world" target="_blank"><div>456.world</div></a>
+        <a href="https://567.world" target="_blank"><div>567.world</div></a>
+        <a href="https://678.world" target="_blank"><div>678.world</div></a>
+        <a href="https://6789.world" target="_blank"><div>6789.world,甩....</div></a>
+        <a href="https://789.world" target="_blank"><div>789.world</div></a>
+        <a href="https://918.world" target="_blank"><div>918.world</div></a>
+        <a href="https://kb.world" target="_blank"><div>kb.world</div></a>
+        <a href="https://css.world" target="_blank"><div>css.world</div></a>
+        <a href="https://stranger.world" target="_blank"><div>stranger.world</div></a>
+        <a href="https://workgroup.world" target="_blank"><div>workgroup.world</div></a>
+      </div>
+        <!----all---->
+<div class="info-box">非主流</div>
+        
+         <div class="social-media">
+
+        <a href="https://ltd,md" target="_blank"><div>ltd.md</div></a>
+        <a href="https://pang.ge" target="_blank"><div>胖哥</div></a>
+        <a href="https://hello.ga" target="_blank"><div>Hello.ga</div></a>
+        <a href="#" target="_blank"><div>helloong</div></a>
+        <a href="#" target="_blank"><div>hellongo</div></a>
+        <a href="#" target="_blank"><div>vipong</div></a>
+        <a href="#" target="_blank"><div>vipngo</div></a>
+        <a href="#" target="_blank"><div>workong</div></a>
+        <a href="#" target="_blank"><div>workngo</div></a>
+      </div>
+
+
+
+    </div>
+  </div>
+      
+  
+  <!-- 添加底部版权信息 -->
+  <footer class="footer">
+    <span>Copyright © 2023 - 2025</span>
+    <span class="separator">|</span>
+    <a href="https://youyi.si" target="_blank">有意思</a>
+    <span class="separator">|</span>
+    <a href="https://icp.gs/" target="_blank">岸号66666666号</a>
+  </footer>
+
+
+  <script src="assets/script.js"></script>
+
+
+
+  <!-- 添加搜索和分享功能的 JavaScript -->
+  <script>
+  
+    // 分享功能
+    const shareBtn = document.querySelector(".share-btn");
+    const shareMenu = document.querySelector(".share-menu");
+
+    shareBtn.addEventListener("click", () => {
+      shareMenu.classList.toggle("active");
+    });
+
+    // 点击其他地方关闭分享菜单
+    document.addEventListener("click", (e) => {
+      if (!shareBtn.contains(e.target) && !shareMenu.contains(e.target)) {
+        shareMenu.classList.remove("active");
+      }
+    });
+
+    // 分享功能实现
+    function shareToWeixin() {
+      alert("请截图分享到微信");
+    }
+
+    function shareToWeibo() {
+      const text = encodeURIComponent(document.title);
+      const url = encodeURIComponent(window.location.href);
+      window.open(`http://service.weibo.com/share/share.php?title=${text}&url=${url}`);
+    }
+
+    function shareToQQ() {
+      const text = encodeURIComponent(document.title);
+      const url = encodeURIComponent(window.location.href);
+      window.open(`http://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${text}`);
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert("链接已复制到剪贴板"))
+        .catch(err => console.error('复制失败:', err));
+    }
+
+    // 二维码按钮交互
+    const qrBtn = document.querySelector('.qr-btn');
+    const qrBox = document.querySelector('.qr-box');
+
+    qrBtn.addEventListener('mouseenter', () => {
+      qrBox.style.opacity = '1';
+      qrBox.style.visibility = 'visible';
+      qrBox.style.transform = 'translateY(0)';
+    });
+
+    qrBtn.addEventListener('mouseleave', () => {
+      qrBox.style.opacity = '0';
+      qrBox.style.visibility = 'hidden';
+      qrBox.style.transform = 'translateY(10px)';
+    });
+  </script>
+
+  <!-- 在body标签结束前添加暗黑模式切换的JavaScript代码 -->
+  <script>
+    // 暗黑模式切换功能
+    const themeBtn = document.querySelector('.theme-btn');
+    const themeIcon = themeBtn.querySelector('i');
+
+    // 检查本地存储中的主题设置
+    if (localStorage.getItem('dark-mode') === 'true') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('dark-mode', 'true');
+      } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('dark-mode', 'false');
+      }
+    });
+  </script>
+  
+</body>
+
+</html>
