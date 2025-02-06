@@ -1,0 +1,629 @@
+
+        :root {
+            --bg-color: #e8f1ff;
+            --card-glass-bg: rgba(255, 255, 255, 0.08);
+            --card-glass-bg-hover: rgba(255, 255, 255, 0.12);
+            --text-primary: rgba(0, 110, 255, 0.7);
+            --text-hover: rgba(0, 110, 255, 1);
+            --text-secondary: rgba(0, 153, 255, 0.6);
+            --text-secondary-hover: rgba(0, 153, 255, 0.9);
+            --contact-bg: rgba(255, 255, 255, 0.1);
+            --contact-bg-hover: rgba(255, 255, 255, 0.15);
+            --glow-color: rgba(0, 110, 255, 0.2);
+            --star-color: rgba(0, 0, 0, 0.5);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root[data-theme="auto"] {
+                --bg-color: #1a1a1a;
+                --card-glass-bg: rgba(18, 18, 18, 0.15);
+                --card-glass-bg-hover: rgba(18, 18, 18, 0.25);
+                --text-primary: rgba(0, 153, 255, 0.8);
+                --text-hover: rgba(0, 153, 255, 1);
+                --text-secondary: rgba(0, 153, 255, 0.6);
+                --text-secondary-hover: rgba(0, 153, 255, 0.9);
+                --contact-bg: rgba(255, 255, 255, 0.08);
+                --contact-bg-hover: rgba(255, 255, 255, 0.12);
+                --glow-color: rgba(0, 153, 255, 0.3);
+                --star-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-glass-bg: rgba(18, 18, 18, 0.15);
+            --card-glass-bg-hover: rgba(18, 18, 18, 0.25);
+            --text-primary: rgba(0, 153, 255, 0.8);
+            --text-hover: rgba(0, 153, 255, 1);
+            --text-secondary: rgba(0, 153, 255, 0.6);
+            --text-secondary-hover: rgba(0, 153, 255, 0.9);
+            --glow-color: rgba(0, 153, 255, 0.3);
+            --star-color: rgba(255, 255, 255, 0.5);
+            
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            transition: background-color 0.3s ease;
+            overflow: auto;
+        }
+
+        .space-wrapper {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            animation: space-travel 3s linear infinite, twinkle 1.5s ease-in-out infinite alternate;
+            will-change: transform, opacity;
+            contain: layout style paint;
+            transition: background-color 0.3s ease;
+        }
+
+        .star::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--star-color);
+            border-radius: 50%;
+            box-shadow: 0 0 3px var(--star-color), 
+                        0 0 8px var(--star-color);
+        }
+
+        .star::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(
+                circle at center,
+                var(--star-color) 0%,
+                rgba(0, 0, 0, 0.3) 15%,
+                transparent 50%
+            );
+            opacity: 0.7;  /* 增加不透明度 */
+        }
+
+        @keyframes space-travel {
+            0% { transform: translateZ(-500px) rotate(0deg); }
+            100% { transform: translateZ(500px) rotate(360deg); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.4; }    /* 提高最小不透明度 */
+            100% { opacity: 1; }
+        }
+
+        .container {
+            perspective: 1000px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 
+                0 8px 32px rgba(31, 38, 135, 0.1),
+                0 4px 8px rgba(0, 0, 0, 0.05);
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.12),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 0 25px rgba(0, 153, 255, 0.06);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* 个人信息区域 */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .avatar-container {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: block;
+            border: 4px solid var(--text-secondary);
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.1),
+                0 0 0 rgba(0, 153, 255, 0);
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .card:hover .avatar {
+            border-color: var(--text-hover);
+            transform: scale(1.05);
+            box-shadow: 
+                0 12px 20px rgba(0, 0, 0, 0.15),
+                0 0 15px var(--glow-color);
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .contacts-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--contact-bg);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item:hover {
+            background: var(--contact-bg-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .contact-item:hover .contact-icon,
+        .contact-item:hover .contact-text {
+            color: var(--text-hover);
+        }
+
+        /* 域名卡片区域 */
+        .domains-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .domain-item {
+            position: relative;
+            background: var(--card-glass-bg);
+            border-radius: 12px;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .domain-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                var(--domain-color, #4A90E2) 0%,
+                transparent 100%
+            );
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+
+        .domain-item:hover::before {
+            opacity: 0.2;
+        }
+
+        .domain-icon {
+            width: 32px;
+            height: 32px;
+            padding: 6px;
+            border-radius: 8px;
+            background: var(--domain-color, #4A90E2);
+            opacity: 0.8;
+            color: white;
+        }
+
+        .domain-name {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .domain-type {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle {
+             position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--card-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--card-glass-bg-hover);
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        
+            /* 太阳图标样式 */
+            .sun-icon {
+                opacity: 0;
+                transform: rotate(-90deg) scale(0);
+                color: #FF9500; /* 暖色调 */
+            }
+            
+            /* 月亮图标样式 */
+            .moon-icon {
+                opacity: 0;
+                transform: rotate(90deg) scale(0);
+                color: #4FC3F7; /* 冷色调蓝色 */
+            }
+            
+            /* 深色模式时的图标状态 */
+            [data-theme="dark"] .sun-icon {
+                opacity: 0;
+                transform: rotate(90deg) scale(0);
+            }
+            
+            [data-theme="dark"] .moon-icon {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+            
+            /* 浅色模式时的图标状态 */
+            [data-theme="light"] .sun-icon {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+            
+            [data-theme="light"] .moon-icon {
+                opacity: 0;
+                transform: rotate(-90deg) scale(0);
+            }
+            
+            /* 自动模式时的图标状态 */
+            [data-theme="auto"] .sun-icon {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+            
+            [data-theme="auto"] .moon-icon {
+                opacity: 0;
+                transform: rotate(-90deg) scale(0);
+            }
+            
+            /* 悬浮效果 */
+            .theme-toggle:hover {
+                background: var(--card-glass-bg-hover);
+                transform: scale(1.05);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            }
+            /* 打赏按钮样式 */
+.donate-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.6rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--card-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    animation: donateButtonBounce 2s ease-in-out infinite;  /* 添加弹跳动画 */
+}
+/* 弹跳动画关键帧 */
+@keyframes donateButtonBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-16px);  /* 礼物向上弹跳 6px */
+    }
+}
+
+.donate-btn:hover {
+    animation: none;  /* 停止弹跳动画 */
+    background: var(--card-glass-bg-hover);
+    transform: scale(1.1);  /* 稍微放大 */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    color: var(--text-hover);
+}
+.donate-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--text-primary);
+    opacity: 0.2;
+    filter: blur(8px);
+    animation: glowPulse 2s ease-in-out infinite;  /* 添加发光脉冲动画 */
+}
+
+/* 发光动画关键帧 */
+@keyframes glowPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+.donate-icon {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.3s ease;
+}
+.donate-btn:hover .donate-icon {
+    transform: rotate(-10ddeg);  /* 图标稍微旋转 */
+}  
+
+
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    padding: 1.5rem;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    padding-top: 1rem;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.qr-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--card-glass-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: var(--text-primary);
+    color: white;
+}
+
+.qr-content {
+    position: relative;
+}
+
+.qr-item {
+    display: none;
+    text-align: center;
+}
+
+.qr-item.active {
+    display: block;
+}
+
+.qr-item img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+       @media screen and (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .contacts-container {
+                flex-direction: column;
+            }
+        
+            .domains-section {
+                grid-template-columns: 1fr;
+            }
+        
+            .card {
+                padding: 1.5rem;
+                /* 移动端禁用变换效果 */
+                transform: none !important;
+                transition: none !important;
+            }
+        
+            /* 调整容器padding，确保内容不会被切掉 */
+            .container {
+                padding: 10px;
+                margin: 10px 0;
+            }
+        
+            /* 优化移动端的滚动体验 */
+            .space-wrapper {
+                position: fixed;
+                height: 100%;
+                pointer-events: none;
+            }
+        }
+      /* HR  */
+      hr {
+        display: none; /* 完全隐藏 */
+    }
+
+         /* copyright */
+.copyright {
+   /*  background: #f5f5f5;  */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.copyright p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .copyright p {
+        font-size: 12px;
+    }
+}
