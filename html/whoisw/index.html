@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WhoisW - 域名WHOIS信息查询,DOMAIN,NAME,IP,域名工具,ip查询,域名注册查询,信息技术学习</title>
+    <meta name="description" content="WhoisW是一个域名whois搜索网站,免费提供whois域名搜索,包含国别新顶级域名,让你随时随地了解域名状态。">
+    <meta name="searchKeywords" content="WhoisW,域名,注册,信息,过期,价格">
+    <meta property="og:site_name" content="WhoisW">
+    <meta property="og:title" content="WhoisW - 域名/IP/ASN信息搜索网站！">
+    <meta property="og:description" content="WhoisW是一个域名whois搜索网站,免费提供whois域名搜索,包含国别新顶级域名,让你随时随地了解域名状态。。">
+    <meta property="og:image" content="/img/logo.svg">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="baidu-site-verification" content="code-FKoNe3TYmB" />
+    <link rel="icon" href="assets/logo.svg" sizes="32x32" />
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+    .circles{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;margin:0;padding:0;}.circles li{position:absolute;display:block;list-style:none;width:20px;height:20px;background:rgb(141 163 253);animation:animate 25s linear infinite;bottom:-150px;}.circles li:nth-child(1){left:25%;width:80px;height:80px;animation-delay:0s;}.circles li:nth-child(2){left:10%;width:20px;height:20px;animation-delay:2s;animation-duration:12s;}.circles li:nth-child(3){left:70%;width:20px;height:20px;animation-delay:4s;}.circles li:nth-child(4){left:40%;width:60px;height:60px;animation-delay:0s;animation-duration:18s;}.circles li:nth-child(5){left:65%;width:20px;height:20px;animation-delay:0s;}.circles li:nth-child(6){left:75%;width:110px;height:110px;animation-delay:3s;}.circles li:nth-child(7){left:35%;width:150px;height:150px;animation-delay:7s;}.circles li:nth-child(8){left:50%;width:25px;height:25px;animation-delay:15s;animation-duration:45s;}.circles li:nth-child(9){left:20%;width:15px;height:15px;animation-delay:2s;animation-duration:35s;}.circles li:nth-child(10){left:85%;width:150px;height:150px;animation-delay:0s;animation-duration:11s;}@keyframes animate{0%{transform:translateY(0) rotate(0deg);opacity:1;border-radius:0;}100%{transform:translateY(-1000px) rotate(720deg);opacity:0;border-radius:50%;}}footer{position:fixed;bottom:0;left:0;width:100%;text-align:center;z-index:2;backdrop-filter:blur(5px);background-color:rgba(0,18,165,.05);padding:0.5em 0;}footer a{position:relative;text-decoration:none;box-shadow:inset 0 -10px 0 #cbeeff;color:#333;font-size:14px;}.dark-mode footer a{box-shadow:inset 0 -10px 0 #cbeeff00;color:#fff;font-size:14px;}.search-index{z-index:2;border-radius:10px;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);background-color:rgba(0,18,165,.05);-webkit-user-select:none;user-select:none;padding:36px;margin-top:-30px;}.dark-mode .search-index{background-color:rgb(255 255 255 / 5%);}@media only screen and (max-width:1000px){.search-index{padding:5px;margin:10px;}fieldset{margin-top:10px;}}#callboard{height:50px;line-height:20px;display:inline-block;overflow:hidden;position:relative;}#callboard ul{padding:0;margin:0;}#callboard li{padding:0;overflow:hidden;display:-webkit-box;margin-left:10px;line-height:50px;text-overflow:ellipsis;-webkit-line-clamp:1;-webkit-box-orient:vertical;white-space:normal;display:flex;align-items:center;}#callboard li img{margin-right:10px;width:20px;height:20px;}
+    </style>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" type="application/javascript"></script>
+
+   <!-- <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+            document.body.classList.add('blur-background');
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            document.body.classList.remove('blur-background');
+        }
+    </script>-->
+
+
+</head>
+
+<body>
+    <div class="area">
+        <ul class="circles">
+            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+    </div>
+    <div id="loader" class="ui-loader loader-blk" style="display: none;">
+        <svg viewBox="22 22 44 44" class="multiColor-loader">
+            <circle cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" class="loader-circle loader-circle-animation"></circle>
+        </svg>
+    </div>
+
+    <!--导航-->
+    <div class="navbar navbar-index">
+        <div class="navbar-brand">
+            <!-- logo -->
+            <div class="logo">
+                <a href="/">
+                    <h1><img src="assets/logo.svg" alt="WhoisW" class="logo-img"></h1>
+                </a>
+            </div>
+            <!-- 切换按钮 -->
+            <div>
+                <label class="switch-container" style="margin-right: 20px;">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <!--导航结束-->
+    <div class="container-index">
+        <!-- 搜索开始 -->
+        <div class="search-index">
+            <fieldset>
+                <legend>Whois</legend>
+                <form action="search.php" method="post" class="search-whois" onsubmit="showLoader();">
+                    <input type="text" onmouseover="this.focus();" onfocus="this.select();" name="domain" class="input" id="input" placeholder="请输入域名或域名后缀" required>
+                    <label for="input" class="labelforsearch"></label>
+                    <div class="border"></div>
+                    <button class="micButton"><svg viewBox="0 0 512 512" class="searchIcon">
+                            <path
+                                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                            </path>
+                        </svg>
+                    </button>
+                </form>
+				<div id="callboard">
+					<ul>
+						<li><img src="assets/message.svg" /><a>查询结果不缓存、不记录、不统计</a></li>
+						<li><img src="assets/message.svg" /><a>用爱发电，轻拿轻放</a></li>
+						<li><img src="assets/message.svg" /><a>小技巧：搜索域名后缀可了解域名根信息</a></li>
+						<li><img src="assets/message.svg" /><a>年久失修，懒得维护，国别不一定能查</a></li>
+						<li><img src="assets/message.svg" /><a>问题反馈：<span class="__cf_email__" data-cfemail="fe97909891be879f90998cd09d9193">[email&#160;protected]</span></a></li>
+						<li><img src="assets/message.svg" /><a>问题反馈QQ：6655193</a></li>
+					</ul>
+				</div>
+            </fieldset>
+            <!-- 搜索结束 -->
+        </div>
+    </div>
+    <footer>
+        <a href="https://whoisw.com/" target="_blank">2024 © WHOISW</a> | <a target="_blank" href="http://beian.miit.gov.cn/">桂ICP备21234567</a>
+    </footer>
+    <script src="assets/index.js"></script>
+    <script src="assets/dark.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WhoisW - 域名WHOIS信息查询,DOMAIN,NAME,IP,域名工具,ip查询,域名注册查询,信息技术学习</title>
+    <meta name="description" content="WhoisW是一个域名whois搜索网站,免费提供whois域名搜索,包含国别新顶级域名,让你随时随地了解域名状态。">
+    <meta name="searchKeywords" content="WhoisW,域名,注册,信息,过期,价格">
+    <meta property="og:site_name" content="WhoisW">
+    <meta property="og:title" content="WhoisW - 域名/IP/ASN信息搜索网站！">
+    <meta property="og:description" content="WhoisW是一个域名whois搜索网站,免费提供whois域名搜索,包含国别新顶级域名,让你随时随地了解域名状态。。">
+    <meta property="og:image" content="assets/logo.svg">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="baidu-site-verification" content="code-FKoNe3TYmB" />
+    <link rel="icon" href="assets/logo.svg" sizes="32x32" />
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+    .circles{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;margin:0;padding:0;}.circles li{position:absolute;display:block;list-style:none;width:20px;height:20px;background:rgb(141 163 253);animation:animate 25s linear infinite;bottom:-150px;}.circles li:nth-child(1){left:25%;width:80px;height:80px;animation-delay:0s;}.circles li:nth-child(2){left:10%;width:20px;height:20px;animation-delay:2s;animation-duration:12s;}.circles li:nth-child(3){left:70%;width:20px;height:20px;animation-delay:4s;}.circles li:nth-child(4){left:40%;width:60px;height:60px;animation-delay:0s;animation-duration:18s;}.circles li:nth-child(5){left:65%;width:20px;height:20px;animation-delay:0s;}.circles li:nth-child(6){left:75%;width:110px;height:110px;animation-delay:3s;}.circles li:nth-child(7){left:35%;width:150px;height:150px;animation-delay:7s;}.circles li:nth-child(8){left:50%;width:25px;height:25px;animation-delay:15s;animation-duration:45s;}.circles li:nth-child(9){left:20%;width:15px;height:15px;animation-delay:2s;animation-duration:35s;}.circles li:nth-child(10){left:85%;width:150px;height:150px;animation-delay:0s;animation-duration:11s;}@keyframes animate{0%{transform:translateY(0) rotate(0deg);opacity:1;border-radius:0;}100%{transform:translateY(-1000px) rotate(720deg);opacity:0;border-radius:50%;}}footer{position:fixed;bottom:0;left:0;width:100%;text-align:center;z-index:2;backdrop-filter:blur(5px);background-color:rgba(0,18,165,.05);padding:0.5em 0;}footer a{position:relative;text-decoration:none;box-shadow:inset 0 -10px 0 #cbeeff;color:#333;font-size:14px;}.dark-mode footer a{box-shadow:inset 0 -10px 0 #cbeeff00;color:#fff;font-size:14px;}.search-index{z-index:2;border-radius:10px;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);background-color:rgba(0,18,165,.05);-webkit-user-select:none;user-select:none;padding:36px;margin-top:-30px;}.dark-mode .search-index{background-color:rgb(255 255 255 / 5%);}@media only screen and (max-width:1000px){.search-index{padding:5px;margin:10px;}fieldset{margin-top:10px;}}#callboard{height:50px;line-height:20px;display:inline-block;overflow:hidden;position:relative;}#callboard ul{padding:0;margin:0;}#callboard li{padding:0;overflow:hidden;display:-webkit-box;margin-left:10px;line-height:50px;text-overflow:ellipsis;-webkit-line-clamp:1;-webkit-box-orient:vertical;white-space:normal;display:flex;align-items:center;}#callboard li img{margin-right:10px;width:20px;height:20px;}
+    </style>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" type="application/javascript"></script>
+
+   <!-- <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+            document.body.classList.add('blur-background');
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            document.body.classList.remove('blur-background');
+        }
+    </script>-->
+
+
+</head>
+
+<body>
+    <body>
+        <!-- 导航开始 -->
+        <div class="navbar">
+            <div class="navbar-brand">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="/">
+                        <h1><img src="assets/logo.svg" alt="WhoisW" class="logo-img"></h1>
+                    </a>
+                </div>
+                <!-- 切换按钮 -->
+                <div>
+                    <label class="switch-container">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- 导航结束 -->
+        <div class="container">
+            <!-- 搜索开始 -->
+
+ <!-- 查询注册 / 续费价 开始 -->
+ <div class="card cards card-mg">
+    <button id="check-price-button">查询注册 / 续费价格</button>
+    <div id="price-info"></div>
+</div>
+
+<!-- 查DNS 开始 -->
+<div class="card cards card-mg">
+<div class="formatted-whois">
+<label class="title"><svg class="success-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+        clip-rule="evenodd"></path>
+</svg>解析记录</label>
+<div style="overflow-x:auto;">
+<table id="other-table">
+    <thead>
+        <tr>
+            <th>类型</th>
+            <th>主机名</th>
+            <th>TTL</th>
+            <th>优先级</th>
+            <th>内容</th>
+        </tr>
+    </thead>
+    <tbody>
+               <tr>
+            <td>
+                A                                        </td>
+            <td>
+                6789.world                                        </td>
+            <td>
+                300                                        </td>
+            <td>
+                -                                        </td>
+            <td>
+                104.21.16.1                                        </td>
+
+                                                                                                                                                                                        </tbody>
+</table>
+</div>
+</div>
+        </div>
+<!-- 查DNS 结束 -->
+
+
+
+            <!-- 所有信息显示开始 -->
+            <div class="allinfo">
+                <!-- 信息显示框开始 -->
+                <div class="whoisinfo">
+                    <!-- 格式化信息开始 -->
+                                    <div class="cards" id="formatted-whois">
+                    <!--进阶查询结束-->
+                        <table>
+                                                                            <tr>
+                                <th>
+                                    域名                            </th>
+                                <td>
+                                    <a target=_blank href="http://6789.COM"><span>6789.COM</span></a>                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    注册商                            </th>
+                                <td>
+                                    <a target=_blank href="http://www.godaddy.com"><span>GoDaddy.com, LLC</span></a>                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    溯源信息                            </th>
+                                <td>
+                                    <a href="server_set.php?domain=6789.com&setSer=whois.godaddy.com"><span>whois.godaddy.com</span></a>                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    更新时间                            </th>
+                                <td>
+                                    2025年01月21日 13:54:27                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    注册时间                            </th>
+                                <td>
+                                    1999年05月21日 17:12:51                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    过期时间                            </th>
+                                <td>
+                                    2035年01月21日 13:15:53                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    域名状态                            </th>
+                                <td>
+                                    <a target=_blank href="https://icann.org/epp#clientDeleteProhibited"><span>注册商设置禁止删除</span></a><br><a target=_blank href="https://icann.org/epp#clientRenewProhibited"><span>注册商设置禁止更新信息</span></a><br><a target=_blank href="https://icann.org/epp#clientTransferProhibited"><span>注册商设置禁止转移</span></a><br><a target=_blank href="https://icann.org/epp#clientUpdateProhibited"><span>注册商设置禁止更新</span></a>                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    DNS                            </th>
+                                <td>
+                                    PDNS09.DOMAINCONTROL.COM<br>PDNS10.DOMAINCONTROL.COM                            </td>
+                            </tr>
+                                                                                                    <tr>
+                                <th>
+                                    DNSSEC                            </th>
+                                <td>
+                                    未配置                            </td>
+                            </tr>
+                                                                        </table>
+                    </div>
+                                    <!-- 格式化信息结束 -->
+                    <!-- 完整信息开始 -->
+                    <div id="whoisbox" class="cards">
+                        <div id="full-whois">
+                               Domain Name: 6789.COM<br />
+       Registry Domain ID: 6679273_DOMAIN_COM-VRSN<br />
+       Registrar WHOIS Server: whois.godaddy.com<br />
+       Registrar URL: http://www.godaddy.com<br />
+       Updated Date: 2025-01-21T05:54:27Z<br />
+       Creation Date: 1999-05-21T09:12:51Z<br />
+       Registry Expiry Date: 2035-01-21T05:15:53Z<br />
+       Registrar: GoDaddy.com, LLC<br />
+       Registrar IANA ID: 146<br />
+       Registrar Abuse Contact Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bedfdccbcddbfed9d1dadfdadac790ddd1d3">[email&#160;protected]</a><br />
+       Registrar Abuse Contact Phone: 480-624-2505<br />
+       Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited<br />
+       Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited<br />
+       Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited<br />
+       Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited<br />
+       Name Server: PDNS09.DOMAINCONTROL.COM<br />
+       Name Server: PDNS10.DOMAINCONTROL.COM<br />
+       DNSSEC: unsigned<br />
+       URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/<br />
+    &gt;&gt;&gt; Last update of whois database: 2025-03-05T11:45:35Z &lt;&lt;&lt;<br />
+    <br />
+    For more information on Whois status codes, please visit https://icann.org/epp<br />
+    <br />
+    NOTICE: The expiration date displayed in this record is the date the<br />
+    registrar's sponsorship of the domain name registration in the registry is<br />
+    currently set to expire. This date does not necessarily reflect the expiration<br />
+    date of the domain name registrant's agreement with the sponsoring<br />
+    registrar.  Users may consult the sponsoring registrar's Whois database to<br />
+    view the registrar's reported date of expiration for this registration.<br />
+    <br />
+    TERMS OF USE: You are not authorized to access or query our Whois<br />
+    database through the use of electronic processes that are high-volume and<br />
+    automated except as reasonably necessary to register domain names or<br />
+    modify existing registrations; the Data in VeriSign Global Registry<br />
+    Services' (&quot;VeriSign&quot;) Whois database is provided by VeriSign for<br />
+    information purposes only, and to assist persons in obtaining information<br />
+    about or related to a domain name registration record. VeriSign does not<br />
+    guarantee its accuracy. By submitting a Whois query, you agree to abide<br />
+    by the following terms of use: You agree that you may use this Data only<br />
+    for lawful purposes and that under no circumstances will you use this Data<br />
+    to: (1) allow, enable, or otherwise support the transmission of mass<br />
+    unsolicited, commercial advertising or solicitations via e-mail, telephone,<br />
+    or facsimile; or (2) enable high volume, automated, electronic processes<br />
+    that apply to VeriSign (or its computer systems). The compilation,<br />
+    repackaging, dissemination or other use of this Data is expressly<br />
+    prohibited without the prior written consent of VeriSign. You agree not to<br />
+    use electronic processes that are automated and high-volume to access or<br />
+    query the Whois database except as reasonably necessary to register<br />
+    domain names or modify existing registrations. VeriSign reserves the right<br />
+    to restrict your access to the Whois database in its sole discretion to ensure<br />
+    operational stability.  VeriSign may restrict or terminate your access to the<br />
+    Whois database for failure to abide by these terms of use. VeriSign<br />
+    reserves the right to modify these terms at any time.<br />
+    <br />
+    The Registry database contains ONLY .COM, .NET, .EDU domains and<br />
+    Registrars.<br />
+                        </div>
+                    </div>
+                    <!-- 完整信息结束 -->
+                </div>
+                <!--其他信息框-->
+                <div class="otherinfo">
+                <!-- 查询注册 / 续费价 开始 -->
+                    <div class="card cards card-mg">
+                        <button id="check-price-button">查询注册 / 续费价格</button>
+                        <div id="price-info"></div>
+                    </div>
+                <!-- 查询注册 / 续费价 结束 -->
+                <!-- 查备案 / QQ / 微信检测 开始 -->
+                    <!--<div class="card cards card-mg">-->
+                    <!--    <button id="check-domain-info">查备案 / QQ / 微信检测</button>-->
+                    <!--    <div id="domain-info"></div>-->
+                    <!--</div>-->
+                <!-- 查备案 / QQ / 微信检测 结束 -->
+                <!-- 查DNS 开始 -->
+                                   <div class="card cards card-mg">
+                        <div class="formatted-whois">
+                            <label class="title"><svg class="success-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>解析记录</label>
+                            <div style="overflow-x:auto;">
+                                <table id="other-table">
+                                    <thead>
+                                        <tr>
+                                            <th>类型</th>
+                                            <th>主机名</th>
+                                            <th>TTL</th>
+                                            <th>优先级</th>
+                                            <th>内容</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                                                                                                    <tr>
+                                            <td>
+                                                A                                        </td>
+                                            <td>
+                                                6789.com                                        </td>
+                                            <td>
+                                                600                                        </td>
+                                            <td>
+                                                -                                        </td>
+                                            <td>
+                                                97.74.90.188                                        </td>
+                                        </tr>
+                                                                                                                                                    <tr>
+                                            <td>
+                                                NS                                        </td>
+                                            <td>
+                                                6789.com                                        </td>
+                                            <td>
+                                                3600                                        </td>
+                                            <td>
+                                                -                                        </td>
+                                            <td>
+                                                pdns10.domaincontrol.com                                        </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>
+                                                NS                                        </td>
+                                            <td>
+                                                6789.com                                        </td>
+                                            <td>
+                                                3600                                        </td>
+                                            <td>
+                                                -                                        </td>
+                                            <td>
+                                                pdns09.domaincontrol.com                                        </td>
+                                        </tr>
+                                                                                                                                                                                                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                                        </div>
+                <!-- 查DNS 结束 -->
+                </div>
+            </div>
+            <!-- 页脚开始 -->
+    <footer>
+        <a href="https://whoisw.com/" target="_blank">2024 © WHOISW</a> | <a target="_blank" href="http://beian.miit.gov.cn/">桂ICP备21234567</a>
+    </footer>
+    <script src="assets/my.js"></script>
+    <script src="assets/index.js"></script>
+    <script src="assets/dark.js"></script>
+</body>
+
+</html>
