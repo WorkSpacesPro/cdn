@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>666 集团 - 项目签约中</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5M2WC9HLVH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5M2WC9HLVH');
+    </script>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #000;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20vh;
+    }
+
+    .header {
+        /* width: 100%; */
+        /* text-align: center; */
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .header img {
+        height: 250px;
+        display: block;
+    }
+
+    .top-bg {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        font-size: 60px;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .button {
+        padding: 0px 6px;
+        font-size: 16px;
+        background-color: #333333;
+        border-radius: 5px;
+        color: #fff;
+        /* cursor: pointer; */
+        /* transition: background-color 0.3s; */
+    }
+
+
+
+    .footer {
+        /* width: 100%;
+        text-align: center; */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+
+    .footer img {
+        height: 550px;
+        display: block;
+    }
+
+    .bear-bg {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    /* 响应式设计：桌面设备（PC） */
+    @media (min-width: 769px) {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .top-bg,
+        .bear-bg {
+            height: 300px;
+            /* 调整为适合PC的高度 */
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .button {
+            /* padding: 15px 60px; */
+            /* font-size: 20px; */
+        }
+    }
+
+    /* 响应式设计：移动设备（H5） */
+    @media (max-width: 768px) {
+
+        .top-bg,
+        .bear-bg {
+            height: 200px;
+            /* 调整为适合移动设备的高度 */
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .button {
+            font-size: 14px;
+        }
+
+        .header img {
+            height: 80px;
+        }
+
+        .footer img {
+            height: 190px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="assets/1.png" alt="Top Background" class="top-bg">
+        </header>
+        <main class="main">
+            <h1 class="title" id="mainTitle">
+                <img class="logo" id="logoImage" src="assets/logo_zh.png" alt="666 Logo">
+            </h1>
+
+            <p class="subtitle" id="subTitle">Project Coming Soon...</p>
+            <a class="button" id="buttonText">Stay Tuned</a>
+        </main>
+        <footer class="footer">
+            <img src="assets/2.png" alt="Bottom Background" class="bear-bg">
+        </footer>
+    </div>
+
+    <script>
+        // 获取浏览器语言
+        const userLang = navigator.language || navigator.userLanguage;
+
+        // 文本内容对象
+        const content = {
+            zh: {
+                subtitle: '666.com 项目筹划中...',
+                button: '3.18正式启动，敬请期待',
+                logo: 'assets/logo_zh.png'  // 中文 logo
+            },
+            en: {
+                subtitle: '666.com Project Coming Soon...',
+                button: 'Stay Tuned',
+                logo: 'assets/logo_en.png'  // 英文 logo
+            }
+        };
+
+        // 根据语言设置内容
+        function setLanguage() {
+            // 如果是中文，使用中文内容，否则使用英文内容
+            const lang = userLang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+
+            // 设置 HTML 标签的 lang 属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // 更新页面文本
+            document.getElementById('subTitle').textContent = content[lang].subtitle;
+            document.getElementById('buttonText').textContent = content[lang].button;
+
+            // 更新 logo 图片
+            document.getElementById('logoImage').src = content[lang].logo;
+
+            // 更新页面标题
+            document.title = lang === 'zh' ? '666 集团 - 项目签约中' : '666 Group - Coming Soon';
+        }
+
+        // 页面加载时执行
+        setLanguage();
+    </script>
+</body>
+
+</html>
