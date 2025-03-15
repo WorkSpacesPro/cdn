@@ -1,0 +1,160 @@
+/* 禁用文本选择、复制和拖拽 */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+        
+        /* 页面基础样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 20px;
+            text-align: left;
+        }
+
+        /* 页面内容容器 */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        nav {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: #0078d4;
+        }
+
+        /* 首页头部 */
+        header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        header img {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        /* 企业介绍 */
+        section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 服务部分样式 */
+        #services h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        #services ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #services li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        /* 工具部分 */
+        #tools li {
+            margin-bottom: 10px;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* 自适应样式 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            header h2 {
+                font-size: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section p {
+                font-size: 0.9rem;
+            }
+
+            #services h3 {
+                font-size: 1.2rem;
+            }
+
+            #services li {
+                font-size: 0.9rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
