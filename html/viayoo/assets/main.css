@@ -3,9 +3,10 @@ html{height:100%;-webkit-tap-highlight-color:rgba(255, 255, 255, 0.1);-webkit-fo
 /*无背景图片 translate*/
 body{min-height:100%;max-width:100%; width: 600px;background: #ffffff;margin: auto;text-align: center;}
 /*背景图片*/
-/*body{min-height:100%;background-color: #37435e;background: #37435e url("https://cdn.jsdelivr.net/gh/zibaicai/cdn/meinv.jpg") no-repeat fixed center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size:cover;max-width:100%; width: 600px;margin: auto;text-align: center;}*/
+/*body{min-height:100%;background-color: #37435e;background: #37435e url("https://yxw.me/img/win/b.jpg") no-repeat fixed center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size:cover;max-width:100%; width: 600px;margin: auto;text-align: center;}*/
 /*背景颜色*/
 /*body{min-height:100%;max-width:100%; width: 600px;background-color:#e8f6f3;translate;margin: auto;text-align: center;} //淡蓝色背景*/
+
 #gesture-indicator{height:100%;width:100%;max-width:600px;position:absolute;top:0;bottom:0;z-index:0;overflow:hidden;word-break:break-all}
 #content{position: absolute;max-width: 600px;width: 100%;}#content{top:25%;transition:0.14s;}
 @media only screen and (min-height:250px){#content{top:62px}}
