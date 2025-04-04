@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>动力</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .blinking-text {
+            color: yellow;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="blinking-text">不要相信，压力能转化为动力；你的压力，只会转化为病例；人最大的动力
+除了兴趣，就是耻辱。</div>
+</body>
+</html>
