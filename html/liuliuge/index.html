@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交联系 - 聊天界面</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // 配置Tailwind自定义颜色（以#FF82AB为主色调）
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF82AB',
+                        primaryLight: '#FFB6C1',
+                        primaryDark: '#FF69B4',
+                        secondary: '#FFF0F5',
+                        robot: '#FFE6F0',
+                        user: '#E6F7FF',
+                        text: '#333333',
+                        lightText: '#666666'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .chat-bubble-robot {
+                border-radius: 18px 18px 18px 0;
+            }
+            .chat-bubble-user {
+                border-radius: 18px 18px 0 18px;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .typing-indicator {
+                display: inline-flex;
+                align-items: center;
+                gap: 3px;
+            }
+            .typing-indicator span {
+                width: 8px;
+                height: 8px;
+                background-color: #FF69B4;
+                border-radius: 50%;
+                animation: typing 1.4s infinite ease-in-out both;
+            }
+            .typing-indicator span:nth-child(1) {
+                animation-delay: -0.32s;
+            }
+            .typing-indicator span:nth-child(2) {
+                animation-delay: -0.16s;
+            }
+            @keyframes typing {
+                0%, 80%, 100% { transform: scale(0); }
+                40% { transform: scale(1); }
+            }
+            .message-appear {
+                animation: fadeIn 0.3s ease-out forwards;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .phone-frame {
+                box-shadow: 0 0 0 10px #111, 0 0 0 11px #1a1a1a, 0 20px 35px -10px rgba(0, 0, 0, 0.5);
+                border-radius: 40px;
+                overflow: hidden;
+                position: relative;
+            }
+            .phone-frame::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40%;
+                height: 20px;
+                background-color: #111;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            .quick-reply-btn {
+                transition: all 0.2s ease;
+            }
+            .quick-reply-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            .quick-reply-btn:active {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-200 min-h-screen flex items-center justify-center p-4">
+    <!-- 电脑端容器 - 模拟手机比例 -->
+    <div class="max-w-md w-full mx-auto h-screen max-h-[800px] phone-frame">
+        <!-- 聊天界面容器 -->
+        <div class="flex flex-col h-full overflow-hidden bg-white">
+            <!-- 顶部导航栏 -->
+            <header class="bg-primary text-white shadow-md z-10">
+                <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                            <i class="fa fa-comments text-xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-lg font-semibold">社交联系助手</h1>
+                            <p class="text-xs opacity-80">在线</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button class="hover:bg-white/20 p-2 rounded-full transition-colors">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button class="hover:bg-white/20 p-2 rounded-full transition-colors">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 聊天内容区域 -->
+            <main class="flex-1 overflow-y-auto bg-secondary p-4 scrollbar-hide" id="chatContainer">
+                <!-- 时间分隔线 -->
+                <div class="flex justify-center my-4">
+                    <span class="bg-primary/20 text-primaryDark text-xs px-3 py-1 rounded-full">今天 10:23</span>
+                </div>
+                
+                <!-- 机器人消息会通过JS动态插入 -->
+            </main>
+
+            <!-- 快捷回复区域 -->
+            <div class="bg-white border-t border-primary/20 p-2 overflow-x-auto scrollbar-hide" id="quickReplyContainer">
+                <div class="flex space-x-2 py-1 min-w-max">
+                    <!-- 快捷回复按钮会通过JS动态插入 -->
+                </div>
+            </div>
+
+            <!-- 输入区域 -->
+            <footer class="bg-white border-t border-primary/20 p-3">
+                <div class="flex items-end space-x-2">
+                    <button class="text-primary/70 hover:text-primary p-2 transition-colors">
+                        <i class="fa fa-smile-o text-xl"></i>
+                    </button>
+                    <button class="text-primary/70 hover:text-primary p-2 transition-colors">
+                        <i class="fa fa-paperclip text-xl"></i>
+                    </button>
+                    <div class="flex-1 relative">
+                        <textarea 
+                            id="messageInput" 
+                            class="w-full border border-primary/30 rounded-full py-2 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none transition-all" 
+                            placeholder="输入消息..."
+                            rows="1"
+                        ></textarea>
+                    </div>
+                    <button 
+                        id="sendButton" 
+                        class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-primaryDark transition-colors"
+                    >
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // 预设的关键词和回复内容
+        const replies = {
+            "微信": {
+                text: "这是我的微信号：wechat_id123，你可以扫描下方二维码添加我",
+                image: "https://picsum.photos/id/237/200/200" // 示例图片，实际应替换为微信二维码
+            },
+            "qq": {
+                text: "我的QQ号是：123456789，很高兴认识你！",
+                image: "https://picsum.photos/id/238/200/200" // 示例图片，实际应替换为QQ二维码
+            },
+            "电话": {
+                text: "我的电话号码是：138-xxxx-xxxx，欢迎来电",
+                image: "https://picsum.photos/id/239/200/200" // 示例图片，实际可替换为联系卡片
+            },
+            "邮箱": {
+                text: "我的邮箱地址是：contact@example.com，我会尽快回复你",
+                image: "https://picsum.photos/id/240/200/200" // 示例图片，实际可替换为邮箱二维码
+            },
+            "微博": {
+                text: "这是我的微博账号：@username，欢迎关注",
+                image: "https://picsum.photos/id/241/200/200" // 示例图片，实际应替换为微博二维码
+            },
+            "默认": {
+                text: "抱歉，我不太明白你的意思。你可以尝试使用这些关键词：微信、QQ、电话、邮箱、微博"
+                // 默认回复没有图片
+            }
+        };
+
+        // 快捷回复关键词列表
+        const quickReplyKeywords = ["微信", "QQ", "电话", "邮箱", "微博"];
+
+        // DOM元素
+        const chatContainer = document.getElementById('chatContainer');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const quickReplyContainer = document.getElementById('quickReplyContainer');
+
+        // 页面加载完成后初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            // 创建快捷回复按钮
+            createQuickReplyButtons();
+            
+            // 自动发送欢迎消息
+            setTimeout(() => {
+                addMessage("你好，你想通过什么方式加我？", 'robot');
+            }, 500);
+            
+            // 发送第二条消息，列出关键词
+            setTimeout(() => {
+                addMessage("你可以点击下方快捷按钮或输入关键词：微信、QQ、电话、邮箱、微博", 'robot');
+            }, 1500);
+
+            // 自动调整输入框高度
+            messageInput.addEventListener('input', adjustTextareaHeight);
+            
+            // 发送消息事件
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+
+        // 创建快捷回复按钮
+        function createQuickReplyButtons() {
+            const buttonContainer = quickReplyContainer.querySelector('div');
+            
+            quickReplyKeywords.forEach(keyword => {
+                const button = document.createElement('button');
+                button.className = 'quick-reply-btn bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors';
+                button.textContent = keyword;
+                button.addEventListener('click', () => {
+                    // 点击快捷按钮直接发送消息
+                    messageInput.value = keyword;
+                    sendMessage();
+                });
+                buttonContainer.appendChild(button);
+            });
+        }
+
+        // 调整文本框高度以适应内容
+        function adjustTextareaHeight() {
+            messageInput.style.height = 'auto';
+            // 限制最大高度为100px
+            messageInput.style.height = Math.min(messageInput.scrollHeight, 100) + 'px';
+        }
+
+        // 添加消息到聊天窗口
+        function addMessage(text, sender, imageUrl = null) {
+            // 创建消息容器
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `mb-4 flex items-start message-appear opacity-0`;
+            
+            // 消息内容 - 机器人消息（左）和用户消息（右）
+            let messageContent = '';
+            
+            if (sender === 'robot') {
+                // 机器人消息：头像在左，消息气泡在右
+                messageContent = `
+                    <div class="mr-2 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+                            <i class="fa fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="max-w-[70%] bg-robot p-3 chat-bubble-robot shadow-sm">
+                        <p class="text-text">${text}</p>
+                `;
+            } else {
+                // 用户消息：消息气泡在左，头像在右（右侧显示）
+                messageContent = `
+                    <div class="flex-1 flex justify-end">
+                        <div class="max-w-[70%] bg-user p-3 chat-bubble-user shadow-sm">
+                            <p class="text-text">${text}</p>
+                `;
+                
+                // 如果有图片，添加图片（居中显示）
+                if (imageUrl) {
+                    messageContent += `
+                        <div class="mt-2 flex justify-center">
+                            <div class="rounded-md overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="${imageUrl}" alt="联系信息二维码" class="w-full h-auto max-w-[200px] object-cover hover:opacity-90 transition-opacity">
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                messageContent += `</div></div>
+                    <div class="ml-2 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-primaryLight flex items-center justify-center text-white">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 机器人消息的图片处理
+            if (imageUrl && sender === 'robot') {
+                messageContent += `
+                    <div class="mt-2 flex justify-center">
+                        <div class="rounded-md overflow-hidden border border-gray-200 shadow-sm">
+                            <img src="${imageUrl}" alt="联系信息二维码" class="w-full h-auto max-w-[200px] object-cover hover:opacity-90 transition-opacity">
+                        </div>
+                    </div>
+                `;
+            }
+            
+            messageContent += sender === 'robot' ? `</div>` : '';
+            messageDiv.innerHTML = messageContent;
+            
+            // 添加到聊天容器并滚动到底部
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // 发送消息
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                // 添加用户消息
+                addMessage(message, 'user');
+                
+                // 清空输入框并重置高度
+                messageInput.value = '';
+                messageInput.style.height = 'auto';
+                
+                // 显示正在输入状态
+                showTypingIndicator();
+                
+                // 处理回复
+                setTimeout(() => {
+                    // 移除正在输入状态
+                    removeTypingIndicator();
+                    
+                    // 查找匹配的回复
+                    let response = replies.default;
+                    for (const [key, value] of Object.entries(replies)) {
+                        if (message.toLowerCase().includes(key.toLowerCase())) {
+                            response = value;
+                            break;
+                        }
+                    }
+                    
+                    // 发送回复
+                    addMessage(response.text, 'robot', response.image);
+                }, 1000); // 模拟思考时间
+            }
+        }
+
+        // 显示正在输入状态
+        function showTypingIndicator() {
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'mb-4 flex items-start message-appear opacity-0';
+            indicatorDiv.id = 'typingIndicator';
+            
+            indicatorDiv.innerHTML = `
+                <div class="mr-2 flex-shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+                        <i class="fa fa-robot"></i>
+                    </div>
+                </div>
+                <div class="bg-robot p-3 rounded-lg shadow-sm">
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            
+            chatContainer.appendChild(indicatorDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // 移除正在输入状态
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                chatContainer.removeChild(indicator);
+            }
+        }
+    </script>
+</body>
+</html>
