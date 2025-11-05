@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+#gradual .scroll {background-image: linear-gradient(112deg, #b9d1e1, #4b440d, #a7a373, #0b9b0a, #5a054c);}
+
+body {color: #000001;} a, a:visited {border-bottom: 1px solid rgba(0, 0, 0, .5); color: #000001;}
+
+h1 {
+	font-size: calc(80vw / 6);
+}
+
+@media (orientation: portrait) and (max-width: 640px) {
+	h1 {
+		font-size: calc((100vw - 20%) / 6 * 1.2618);
+	}
+}
+
+/* Hello World */
+/* Theme inspired from: xiong#the.boring.studio */
+/* Rebuild by Angel, Powered by Rust */
+/* Execution time: 14μs */
