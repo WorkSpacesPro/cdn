@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>正在更新中</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		.birds-box {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background: url('assets/backimage.jpeg') no-repeat center center / cover;
+		}
+	</style>
+</head>
+<body>
+	<!-- 飞鸟特效的容器 -->
+	<div class="birds-box"></div>
+
+	<script src="assets/three.min.js"></script>
+    <script src="assets/vanta.birds.min.js"></script>
+	<script>
+		VANTA.BIRDS({
+			el: ".birds-box", // 飞鸟容器
+			mouseControls: true,
+			touchControls: false,
+			gyroControls: false,
+			minHeight: 200.00,
+			minWidth: 200.00,
+			scale: 1.00,
+			scaleMobile: 1,
+			backgroundAlpha: 0.3,
+			color1: 0x1a6138,
+			color2: 0xf6f7f7
+		})
+	</script>
+</body>
+</html>
